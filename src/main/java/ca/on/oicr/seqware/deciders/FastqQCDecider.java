@@ -23,7 +23,6 @@ public class FastqQCDecider extends BasicDecider {
 
     @Override
     public ReturnValue init() {
-        this.setTemplateIniPath("templateworkflow.ini");
         this.setHeader(Header.IUS_SWA);
         this.setMetaType(Arrays.asList("chemical/seq-na-fastq", "chemical/seq-na-fastq-gzip"));
 
