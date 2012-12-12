@@ -22,7 +22,7 @@ public class FastqQCDecider extends BasicDecider {
     public FastqQCDecider() {
         super();
         parser.acceptsAll(Arrays.asList("ini-file"), "Optional: the location of the INI file.").withRequiredArg();
-        parser.accepts("extract"); //whether to extract the final QC zip file
+        parser.accepts("extract", "whether to extract the final QC zip file");
         parser.accepts("output-folder", "Optional: the name of the folder to put the output into relative to the output-path. "
                 + "Corresponds to output-dir in INI file. Default: seqware-results").withRequiredArg();
         parser.accepts("output-path", "Optional: the path where the files should be copied to "
