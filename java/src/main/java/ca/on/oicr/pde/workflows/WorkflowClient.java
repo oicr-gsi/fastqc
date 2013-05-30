@@ -63,20 +63,12 @@ public class WorkflowClient extends AbstractWorkflowDataModel {
     @Override
     public Map<String, SqwFile> setupFiles() {
 
-        try {
+        SqwFile file0 = this.createFile("file_in_0");
+        file0.setSourcePath(inputFile);
+        file0.setType("chemical/seq-na-fastq");
+        file0.setIsInput(true);
 
-            // register an input file
-            SqwFile file0 = this.createFile("file_in_0");
-            file0.setSourcePath(inputFile);
-            file0.setType("chemical/seq-na-fastq");
-            file0.setIsInput(true);
-
-            return this.getFiles();
-
-        } catch (Exception ex) {
-            logger.log(Level.SEVERE, null, ex);
-            return null;
-        }
+        return this.getFiles();
 
     }
 
