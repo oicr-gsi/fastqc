@@ -87,7 +87,7 @@ public class WorkflowClient extends AbstractWorkflowDataModel {
         Command command = job.getCommand();
         command.addArgument(perl);
         command.addArgument(fastqc);
-        command.addArgument(inputFile);
+        command.addArgument(getFiles().get("file_in_0").getProvisionedPath());
         command.addArgument("--java=" + java);
 
 //        //extraction of fastqc report zip disabled
