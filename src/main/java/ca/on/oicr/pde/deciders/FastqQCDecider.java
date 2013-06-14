@@ -1,4 +1,4 @@
-package ca.on.oicr.seqware.deciders;
+package ca.on.oicr.pde.deciders;
 
 import java.util.*;
 import net.sourceforge.seqware.common.hibernate.FindAllTheFiles.Header;
@@ -6,14 +6,13 @@ import net.sourceforge.seqware.common.module.FileMetadata;
 import net.sourceforge.seqware.common.module.ReturnValue;
 import net.sourceforge.seqware.common.util.Log;
 import net.sourceforge.seqware.common.util.maptools.MapTools;
-import net.sourceforge.seqware.pipeline.deciders.BasicDecider;
 import java.io.File;
 
 /**
  * @author zhibin.lu@oicr.on.ca
  *
  */
-public class FastqQCDecider extends BasicDecider {
+public class FastqQCDecider extends OicrDecider {
 
     private Map<String, String> pathToType = new HashMap<String, String>();
     private String folder = "seqware-results";
@@ -75,9 +74,9 @@ public class FastqQCDecider extends BasicDecider {
         //FastQC workflow only handles gzipped/unzipped FASTQ format.
         if (!fm.getMetaType().equals("chemical/seq-na-fastq") && !fm.getMetaType().equals("chemical/seq-na-fastq-gzip")) {
             return false;
-        } else {
-            return super.checkFileDetails(returnValue, fm);
         }
+
+        return super.checkFileDetails(returnValue, fm);
 
     }
 
