@@ -8,7 +8,7 @@
     </prerequisites>
 
     <groupId>ca.on.oicr.pde.workflows</groupId>
-    <artifactId>workflow-bam-qc</artifactId>
+    <artifactId>workflow-fast-qc</artifactId>
     <version>2.0</version>
     <packaging>jar</packaging>
 
