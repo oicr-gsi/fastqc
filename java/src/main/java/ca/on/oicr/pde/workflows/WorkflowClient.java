@@ -1,5 +1,6 @@
 package ca.on.oicr.pde.workflows;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,8 +17,9 @@ public class WorkflowClient extends AbstractWorkflowDataModel {
     //private boolean doExtract = false;
     private String queue = null;
     private String inputFile = null;
-    private String p_outputPrefix = null;
-    private String p_outputDir = null;
+    private String outputPrefix = null;
+    private String outputDir = null;
+    private String outputPath = null;
     //workflow programs
     private String perl = null;
     private String java = null;
@@ -25,7 +27,7 @@ public class WorkflowClient extends AbstractWorkflowDataModel {
     //workflow directories
     private String binDir = null;
     private String dataDir = null;
-    private String outputDir = null;
+    private String finalOutputDir = null;
 
     //Constructor - called in setupDirectory()
     private void WorkflowClient() {
@@ -35,9 +37,18 @@ public class WorkflowClient extends AbstractWorkflowDataModel {
 
         //load workflow parameters
         try {
-            p_outputDir = getProperty("output_dir");
-            p_outputPrefix = getProperty("output_prefix");
-            outputDir = p_outputPrefix + p_outputDir + "/seqware-" + getSeqware_version() + "_" + getName() + "_" + getVersion() + "/" + getRandom() + "/";
+            outputDir = getProperty("output_dir");
+            outputPrefix = getProperty("output_prefix");
+            outputPath = getProperty("output_path");
+            
+            if (Arrays.asList("na", "").contains(outputPath.toLowerCase().trim())) {
+                finalOutputDir = outputPrefix + outputDir + "/seqware-" + getSeqware_version() + "_" + getName() + "_" + getVersion() + "/" + getRandom() + "/";
+            } else {
+                //make sure the path ends with a "/"
+                outputPath = outputPath.lastIndexOf("/") == (outputPath.length() - 1) ? outputPath : outputPath + "/";
+                finalOutputDir = outputPath;
+            }
+            
             perl = binDir + getProperty("perl");
             java = binDir + getProperty("java");
             fastqc = binDir + getProperty("fastqc");
@@ -56,7 +67,7 @@ public class WorkflowClient extends AbstractWorkflowDataModel {
 
         WorkflowClient(); //Constructor call
         addDirectory(dataDir);
-        addDirectory(outputDir);
+        addDirectory(finalOutputDir);
 
     }
 
@@ -98,7 +109,7 @@ public class WorkflowClient extends AbstractWorkflowDataModel {
         command.addArgument("--outdir " + dataDir);
 
         String outputFile = inputFile.substring(inputFile.lastIndexOf("/") + 1, inputFile.lastIndexOf(".fastq")) + "_fastqc.zip";
-        SqwFile sqwOutputFile = createOutFile(dataDir + outputFile, "application/zip-report-bundle", outputDir + dataDir + outputFile, true);
+        SqwFile sqwOutputFile = createOutFile(dataDir + outputFile, "application/zip-report-bundle", finalOutputDir + outputFile, true);
         job.addFile(sqwOutputFile);
 
 //        //extraction of fastqc report zip disabled
