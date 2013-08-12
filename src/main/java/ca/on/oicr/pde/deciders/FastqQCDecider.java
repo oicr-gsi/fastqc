@@ -17,11 +17,11 @@ public class FastqQCDecider extends OicrDecider {
     private Map<String, String> pathToType = new HashMap<String, String>();
 //    private String folder = "seqware-results";
 //    private String path = "./";
-    private String iniFile=null;
+    private String iniFile = null;
     public FastqQCDecider() {
         super();
         parser.acceptsAll(Arrays.asList("ini-file"), "Optional: the location of the INI file.").withRequiredArg();
-        parser.accepts("extract", "whether to extract the final QC zip file");
+        //parser.accepts("extract", "whether to extract the final QC zip file");
 //        parser.accepts("output-folder", "Optional: the name of the folder to put the output into relative to the output-path. "
 //                + "Corresponds to output-dir in INI file. Default: seqware-results").withRequiredArg();
 //        parser.accepts("output-path", "Optional: the path where the files should be copied to "
@@ -31,25 +31,28 @@ public class FastqQCDecider extends OicrDecider {
 
     @Override
     public ReturnValue init() {
-        this.setHeader(Header.FILE_SWA);
+        this.setGroupingStrategy(Header.IUS_SWA);
         this.setMetaType(Arrays.asList("chemical/seq-na-fastq", "chemical/seq-na-fastq-gzip"));
+
+        ret = super.init();
         
         //allows anything defined on the command line to override the 'defaults' here.
-        ReturnValue val = super.init();
 
         if (this.options.has("group-by")) {
             Log.error("I think your workflow run will fail. This fastq-qc workflow handles each fastq file at a time. Please do not use 'group-by' option.");
         }
+
         if (options.has("ini-file")) {
             File file = new File(options.valueOf("ini-file").toString());
             if (file.exists()) {
                 iniFile = file.getAbsolutePath();
+                Log.stdout("User specified ini file will be used: " + iniFile);
                 Map<String, String> iniFileMap = MapTools.iniString2Map(iniFile);
 //                folder = iniFileMap.get("output_dir");
 //                path = iniFileMap.get("output_path");
             } else {
                 Log.error("The given INI file does not exist: " + file.getAbsolutePath());
-                System.exit(1);
+                ret.setExitStatus(ReturnValue.FILENOTREADABLE);
             }
 
         }
@@ -63,8 +66,7 @@ public class FastqQCDecider extends OicrDecider {
 //            }
 //        }
 
-
-        return val;
+        return ret;
 
     }
 
@@ -90,17 +92,20 @@ public class FastqQCDecider extends OicrDecider {
             MapTools.ini2Map(iniFile, iniFileMap, false);
         }
 
-        //Remove "input_files" from ini file - FastQC workflow only one input at a time.
-        //"input_files" is added to the iniFileMap by BasicDecider (parent of OicrDecider).
-        iniFileMap.remove("input_files");
+//        //Remove "input_files" from ini file - FastQC workflow only one input at a time.
+//        //"input_files" is added to the iniFileMap by BasicDecider (parent of OicrDecider).
+//        iniFileMap.remove("input_files");
         
         //if the command line has 'extract' option, the final zip file will also be extracted.
-        if (options.has("extract")) {
-            iniFileMap.put("extract", "yes");
-        }
-        //FastQC workflow only handles one file at a time, so the commaSeparatedFilePaths should be a single file name. Warning has been given
-        //at when the class instance was created. It is users' responsibility not to use 'group-by' option.
-        iniFileMap.put("input_file", commaSeparatedFilePaths);
+//        if (options.has("extract")) {
+//            iniFileMap.put("extract", "yes");
+//        }
+//        //FastQC workflow only handles one file at a time, so the commaSeparatedFilePaths should be a single file name. Warning has been given
+//        //at when the class instance was created. It is users' responsibility not to use 'group-by' option.
+//        iniFileMap.put("input_file", commaSeparatedFilePaths);
+        
+        iniFileMap.put("input_files", commaSeparatedFilePaths);
+        
 //        if (folder!=null) iniFileMap.put("output_dir", folder);
 //        if (path!=null) iniFileMap.put("output_prefix", path);
 
