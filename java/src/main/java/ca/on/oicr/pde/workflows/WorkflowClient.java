@@ -57,7 +57,7 @@ public class WorkflowClient extends OicrWorkflow {
             fastqc = binDir + getProperty("fastqc");
             //extract = getProperty("extract");        
             //doExtract = extract.equals("yes") ? true : false;
-            queue = getProperty("queue");
+            queue = getOptionalProperty("queue", "");
             inputFiles = getProperty("input_files");
         } catch (Exception ex) {
             logger.log(Level.SEVERE, "Expected parameter missing", ex);
