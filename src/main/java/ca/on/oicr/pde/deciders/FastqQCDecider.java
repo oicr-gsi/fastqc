@@ -18,6 +18,7 @@ public class FastqQCDecider extends OicrDecider {
 //    private String folder = "seqware-results";
 //    private String path = "./";
     private String iniFile = null;
+    private List<String> skipSequencerRuns=null;
     
     //NOTE: order of headers in list matters (group by first, then second, etc)
     private List<Header> orderedListOfHeadersToGroupBy = Arrays.asList(Header.WORKFLOW_RUN_SWA, Header.IUS_SWA);
@@ -25,6 +26,7 @@ public class FastqQCDecider extends OicrDecider {
     public FastqQCDecider() {
         super();
         parser.acceptsAll(Arrays.asList("ini-file"), "Optional: the location of the INI file.").withRequiredArg();
+	parser.accepts("skip-sequencer-runs", "Optional: comma-separated list of sequencer run names to ignore in this decider run.").withRequiredArg();
         //parser.accepts("extract", "whether to extract the final QC zip file");
 //        parser.accepts("output-folder", "Optional: the name of the folder to put the output into relative to the output-path. "
 //                + "Corresponds to output-dir in INI file. Default: seqware-results").withRequiredArg();
@@ -69,7 +71,9 @@ public class FastqQCDecider extends OicrDecider {
 //                path += "/";
 //            }
 //        }
-
+	if (options.has("skip-sequencer-runs")) {
+	    skipSequencerRuns = Arrays.asList(options.valueOf("skip-sequencer-runs").toString().split(","));
+	}
         return ret;
 
     }
@@ -123,7 +127,12 @@ public class FastqQCDecider extends OicrDecider {
         if (!fm.getMetaType().equals("chemical/seq-na-fastq") && !fm.getMetaType().equals("chemical/seq-na-fastq-gzip")) {
             return false;
         }
-
+	if (skipSequencerRuns !=null) {
+	    String srn = returnValue.getAttribute(Header.SEQUENCER_RUN_NAME.getTitle());
+	    if (skipSequencerRuns.contains(srn.trim())){
+		return false;
+	    }
+	}	
         return super.checkFileDetails(returnValue, fm);
 
     }
