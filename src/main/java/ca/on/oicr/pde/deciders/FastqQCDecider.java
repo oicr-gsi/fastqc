@@ -6,6 +6,7 @@ import net.sourceforge.seqware.common.module.ReturnValue;
 import net.sourceforge.seqware.common.util.Log;
 import net.sourceforge.seqware.common.util.maptools.MapTools;
 import java.io.File;
+import net.sourceforge.seqware.common.hibernate.FindAllTheFiles;
 import net.sourceforge.seqware.common.hibernate.FindAllTheFiles.Header;
 
 /**
@@ -125,6 +126,11 @@ public class FastqQCDecider extends OicrDecider {
         pathToType.put(fm.getFilePath(), fm.getMetaType());
         //FastQC workflow only handles gzipped/unzipped FASTQ format.
         if (!fm.getMetaType().equals("chemical/seq-na-fastq") && !fm.getMetaType().equals("chemical/seq-na-fastq-gzip")) {
+            return false;
+        }
+        // SEQWARE-1809, PDE-474 ensure that deciders only use input from completed workflow runs
+        String status = returnValue.getAttribute(FindAllTheFiles.WORKFLOW_RUN_STATUS);
+        if (status == null || !status.equals("completed")){
             return false;
         }
 	if (skipSequencerRuns !=null) {
