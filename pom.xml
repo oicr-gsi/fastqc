@@ -96,6 +96,11 @@
             <artifactId>decider-utilities</artifactId>
             <version>1.4.3</version>
         </dependency>
+        <dependency>
+            <groupId>ca.on.oicr.pde.workflows</groupId>
+            <artifactId>workflow-fast-qc</artifactId>
+            <version>${workflow-version}</version>
+        </dependency>
     </dependencies>
 
     <repositories>
