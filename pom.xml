@@ -15,7 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <seqware-version>0.13.6.15</seqware-version>
-        <workflow-version>2.1</workflow-version>
+        <workflow-version>2.2</workflow-version>
     </properties>
 
     <build>
