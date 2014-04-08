@@ -56,20 +56,7 @@
             <groupId>com.github.seqware</groupId>
             <artifactId>seqware-pipeline</artifactId>
             <version>${seqware-version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.hadoop</groupId>
-                    <artifactId>hadoop-client</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.apache.oozie</groupId>
-                    <artifactId>oozie-tools</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.apache.oozie</groupId>
-                    <artifactId>oozie-client</artifactId>
-                </exclusion>
-            </exclusions>
+	    <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>ca.on.oicr.pde</groupId>
@@ -339,6 +326,35 @@
                     </archive>
                 </configuration>
             </plugin>
+	    <plugin>
+                <groupId>com.pyx4j</groupId>
+                <artifactId>maven-junction-plugin</artifactId>
+                <version>1.0.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>link</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>unlink</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>unlink</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <links>
+                        <link>
+                            <dst>${bundleDirectory}/data</dst>
+                            <src>${basedir}/links</src>
+                        </link>
+                    </links>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
