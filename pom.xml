@@ -26,7 +26,6 @@
             <groupId>ca.on.oicr.pde.workflows</groupId>
             <artifactId>workflow-fast-qc</artifactId>
             <version>${workflow-version}</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 
