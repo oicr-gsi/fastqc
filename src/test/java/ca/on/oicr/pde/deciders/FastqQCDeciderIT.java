@@ -20,8 +20,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import org.testng.Assert;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 /**
@@ -39,10 +42,34 @@ public class FastqQCDeciderIT {
 
     public FastqQCDeciderIT() {
 
-        bundledWorkflow = Helpers.getBundledWorkflow();
-        System.out.println("bundled workflow = " + bundledWorkflow);
-        r = new RegressionTestStudy("localhost", "54321", "seqware", "seqware");
+    }
 
+    @BeforeSuite
+    public void setupMetadb() {
+
+        //get the workflow bundle associated with the decider
+        bundledWorkflow = Helpers.getBundledWorkflow();
+        Assert.assertNotNull(bundledWorkflow, "Unable to locate the workflow bundle.");
+        Assert.assertTrue(bundledWorkflow.exists(), "The workflow bundle [" + bundledWorkflow + "] does not exist.");
+
+        //get the database settings
+        String dbHost = System.getProperty("dbHost");
+        String dbPort = System.getProperty("dbPort");
+        String dbUser = System.getProperty("dbUser");
+        String dbPassword = System.getProperty("dbPassword");
+        assertNotNull(dbHost, "Set dbHost to a testing Postgres database host name");
+        assertNotNull(dbPort, "Set dbPort to a testing Postgres database port");
+        assertNotNull(dbUser, "Set dbUser to a testing Postgres database user name");
+        assertNotNull(dbPassword, "Set dbPassword to a testing Postgres database password");
+        
+        //get the seqware webservice war
+        String seqwareWarPath = System.getProperty("seqwareWar");
+        assertNotNull(seqwareWarPath, "seqwareWar is not set.");
+        File seqwareWar = new File(seqwareWarPath);
+        assertTrue(seqwareWar.exists(), "seqware was is not accessible.");
+
+        //get the regression test study and PDE's service objects
+        r = new RegressionTestStudy(dbHost, dbPort, dbUser, dbPassword, seqwareWar);
         ses = r.getSeqwareExecutor();
         srs = r.getSeqwareReadService();
         sws = r.getSeqwareWriteService();
@@ -50,7 +77,6 @@ public class FastqQCDeciderIT {
 
         //set the seqware settings path (needed by Seqware's plugin runner)
         System.setProperty("SEQWARE_SETTINGS", r.getSeqwareSettings().getAbsolutePath());
-
     }
 
     @BeforeClass
