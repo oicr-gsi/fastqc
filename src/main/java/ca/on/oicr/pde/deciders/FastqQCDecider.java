@@ -41,7 +41,7 @@ public class FastqQCDecider extends OicrDecider {
         
         this.setMetaType(Arrays.asList("chemical/seq-na-fastq", "chemical/seq-na-fastq-gzip"));
 
-        ret = super.init();
+        ReturnValue ret = super.init();
 
         //allows anything defined on the command line to override the 'defaults' here.
 
