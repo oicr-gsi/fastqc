@@ -25,6 +25,7 @@
             <artifactId>fastqc</artifactId>
             <version>0.10.1</version>
             <type>zip</type>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
