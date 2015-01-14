@@ -61,7 +61,7 @@ public class FastqQCDeciderIT {
         assertNotNull(dbPort, "Set dbPort to a testing Postgres database port");
         assertNotNull(dbUser, "Set dbUser to a testing Postgres database user name");
         assertNotNull(dbPassword, "Set dbPassword to a testing Postgres database password");
-        
+
         //get the seqware webservice war
         String seqwareWarPath = System.getProperty("seqwareWar");
         assertNotNull(seqwareWarPath, "seqwareWar is not set.");
@@ -104,7 +104,7 @@ public class FastqQCDeciderIT {
         Workflow fastqcWorkflow = b.build();
 
         run(fastqcWorkflow, "--all");
-        DeciderRunTestReport report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST);
+        DeciderRunTestReport report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
         Assert.assertEquals(report.getMaxInputFiles().intValue(), 2);
         Assert.assertEquals(report.getMinInputFiles().intValue(), 2);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 16);
@@ -112,7 +112,7 @@ public class FastqQCDeciderIT {
 
         //all fastqs have been scheduled for processing, no new workflow runs should be schedulable
         run(fastqcWorkflow, "--all");
-        DeciderRunTestReport report2 = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST);
+        DeciderRunTestReport report2 = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
         Assert.assertEquals(report2.getWorkflowRunCount().intValue(), 16);
         Assert.assertEquals(report, report2);
     }
@@ -130,22 +130,22 @@ public class FastqQCDeciderIT {
 
         //schedule 4 runs
         run(fastqcWorkflow, "--all", "--launch-max 4");
-        report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST);
+        report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 4);
 
         //schedule 4 more runs
         run(fastqcWorkflow, "--all", "--launch-max 4");
-        report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST);
+        report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 8);
 
         //shouldn't schedule anything
         run(fastqcWorkflow, "--all", "--launch-max 0");
-        report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST);
+        report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 8);
 
         //schedule the rest
         run(fastqcWorkflow, "--all", "--launch-max 20");
-        report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST);
+        report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 16);
     }
 
