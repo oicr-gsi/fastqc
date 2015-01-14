@@ -1,6 +1,6 @@
 {
     "defaultDescription": "FastQC decider test",
-    "defaultMetricsDirectory": "/.mounts/labs/PDE/data/RegressionTests/FastQC/decider/development",
+    "defaultMetricsResources": "/expected_output/development/",
     "defaultParameters": {
         "--output-path": "./"
     },
@@ -11,9 +11,9 @@
         {
             "id": "AshPC study test",
             "studies": ["AshPC"],
-	    "parameters": {
-		"--before-date": "2013-11-19"
-	     }	  
+            "parameters": {
+                "--before-date": "2013-11-19"
+            }
         },
         {
             "id": "PCSI sample test",
@@ -27,7 +27,7 @@
             "sequencerRuns": ["120912_h804_0094_BD181GACXX"],
             "parameters": {
                 "--before-date": "2013-11-19"
-             }
+            }
         },
         {
             "id": "OBC sample test",
