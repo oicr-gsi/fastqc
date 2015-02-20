@@ -27,7 +27,6 @@ public class WorkflowClient extends OicrWorkflow {
 
     //Constructor - called in setupDirectory()
     private void WorkflowClient() {
-
         binDir = getWorkflowBaseDir() + "/bin/";
         dataDir = "data/";
         manualOutput = Boolean.valueOf(getProperty("manual_output"));
@@ -36,21 +35,16 @@ public class WorkflowClient extends OicrWorkflow {
         fastqc = binDir + getProperty("fastqc");
         queue = getOptionalProperty("queue", "");
         inputFiles = getProperty("input_files");
-
     }
 
     @Override
     public void setupDirectory() {
-
         WorkflowClient(); //Constructor call
         addDirectory(dataDir);
-        //addDirectory(outputPath);
-
     }
 
     @Override
     public Map<String, SqwFile> setupFiles() {
-
         int fileNumber = 0;
         for (String inputFilePath : inputFiles.split(",")) {
             SqwFile file = this.createFile("file_in_" + fileNumber++);
@@ -59,12 +53,10 @@ public class WorkflowClient extends OicrWorkflow {
             file.setIsInput(true);
         }
         return this.getFiles();
-
     }
 
     @Override
     public void buildWorkflow() {
-
         //Launch a fastq qc job for each input file
         for (Map.Entry<String, SqwFile> file : this.getFiles().entrySet()) {
             logger.info(String.format("%s %s", file.getKey(), file.getValue().getProvisionedPath()));
@@ -72,11 +64,9 @@ public class WorkflowClient extends OicrWorkflow {
             job.setMaxMemory("4000");
             job.setQueue(queue);
         }
-
     }
 
     private Job getFastQcJob(String fastqInputFilePath) {
-
         Job job = getWorkflow().createBashJob("FastQC");
         Command command = job.getCommand();
         command.addArgument(perl);
@@ -86,12 +76,11 @@ public class WorkflowClient extends OicrWorkflow {
         command.addArgument("--noextract");
         command.addArgument("--outdir " + dataDir);
 
-        String outputFileName = fastqInputFilePath.substring(fastqInputFilePath.lastIndexOf("/") + 1, fastqInputFilePath.lastIndexOf(".fastq")) + "_fastqc.zip";
-        SqwFile sqwOutputFile = createOutputFile(dataDir + outputFileName, "application/zip-report-bundle", manualOutput);
+        String outputFileName = fastqInputFilePath.substring(fastqInputFilePath.lastIndexOf("/") + 1, fastqInputFilePath.lastIndexOf(".fastq")) + "_fastqc.html";
+        SqwFile sqwOutputFile = createOutputFile(dataDir + outputFileName, "text/html", manualOutput);
         job.addFile(sqwOutputFile);
 
         return job;
-
     }
 
 }
