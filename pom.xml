@@ -17,13 +17,14 @@
     <name>${display-name}</name>
 
     <properties>
+        <fastqc-version>0.11.2</fastqc-version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>fastqc</groupId>
             <artifactId>fastqc</artifactId>
-            <version>0.11.2</version>
+            <version>${fastqc-version}</version>
             <type>zip</type>
             <scope>provided</scope>
         </dependency>
