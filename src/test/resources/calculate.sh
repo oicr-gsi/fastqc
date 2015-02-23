@@ -1,8 +1,9 @@
 #/bin/bash
-cd $1
- 
-find . -name "*.zip" -exec unzip {} \; >/dev/null
-find . -type f -name fastqc_report.html -exec sed -i '/<div id="header_filename">/,/<\/div>/{/<div id="header_filename">/!{/<\/div>/!d}}' {} \;
-find . -type f -not -path "./*.zip" -exec md5sum {} + 
- 
+set -o nounset
+set -o errexit
+set -o pipefail
+set -o noclobber
 
+cd "$1"
+
+find . -type f -name "*fastqc.html" -printf '%p\t' -exec bash -c 'cat "$0" | sed "s/\(<div id=\"header_filename\">\)[^<]*\(<br\/>\)/\1\2/g" | md5sum | cut -d " " -f 1' {} \;
