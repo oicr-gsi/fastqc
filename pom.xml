@@ -17,6 +17,7 @@
     <name>${display-name}</name>
 
     <properties>
+        <workflow-name>FastQC</workflow-name>
         <fastqc-version>0.11.2</fastqc-version>
     </properties>
 
