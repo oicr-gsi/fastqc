@@ -149,6 +149,50 @@ public class FastqQCDeciderIT {
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 16);
     }
 
+    @Test
+    public void missingRootSampleFilterTest() throws IOException {
+        Workflow.Builder b = new Workflow.Builder();
+        b.setSwid(ses.installWorkflow(Helpers.getBundledWorkflow()).getSwid());
+        Workflow fastqcWorkflow = b.build();
+
+        run(fastqcWorkflow, "--root-sample-name does_not_exist");
+        DeciderRunTestReport report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
+        Assert.assertEquals(report.getWorkflowRunCount().intValue(), 0);
+    }
+
+    @Test
+    public void missingSequencerRunFilterTest() throws IOException {
+        Workflow.Builder b = new Workflow.Builder();
+        b.setSwid(ses.installWorkflow(Helpers.getBundledWorkflow()).getSwid());
+        Workflow fastqcWorkflow = b.build();
+
+        run(fastqcWorkflow, "--sequencer-run-name does_not_exist");
+        DeciderRunTestReport report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
+        Assert.assertEquals(report.getWorkflowRunCount().intValue(), 0);
+    }
+
+    @Test
+    public void missingStudyFilterTest() throws IOException {
+        Workflow.Builder b = new Workflow.Builder();
+        b.setSwid(ses.installWorkflow(Helpers.getBundledWorkflow()).getSwid());
+        Workflow fastqcWorkflow = b.build();
+
+        run(fastqcWorkflow, "--study-name does_not_exist");
+        DeciderRunTestReport report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
+        Assert.assertEquals(report.getWorkflowRunCount().intValue(), 0);
+    }
+
+    @Test
+    public void missingSampleFilterTest() throws IOException {
+        Workflow.Builder b = new Workflow.Builder();
+        b.setSwid(ses.installWorkflow(Helpers.getBundledWorkflow()).getSwid());
+        Workflow fastqcWorkflow = b.build();
+
+        run(fastqcWorkflow, "--sample-name does_not_exist");
+        DeciderRunTestReport report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
+        Assert.assertEquals(report.getWorkflowRunCount().intValue(), 0);
+    }
+
     private List<WorkflowRunReportRecord> run(Workflow workflow, String... extraDeciderParams) throws IOException {
         //update the file provenance report (needed by decider)
         sws.updateFileReport();
