@@ -155,7 +155,12 @@ public class FastqQCDeciderIT {
         b.setSwid(ses.installWorkflow(Helpers.getBundledWorkflow()).getSwid());
         Workflow fastqcWorkflow = b.build();
 
-        run(fastqcWorkflow, "--root-sample-name does_not_exist");
+        try {
+            run(fastqcWorkflow, "--root-sample-name does_not_exist");
+            Assert.fail("A NotFoundException should have been thrown.");
+        } catch (net.sourceforge.seqware.common.err.NotFoundException nfe) {
+        }
+
         DeciderRunTestReport report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 0);
     }
@@ -166,7 +171,13 @@ public class FastqQCDeciderIT {
         b.setSwid(ses.installWorkflow(Helpers.getBundledWorkflow()).getSwid());
         Workflow fastqcWorkflow = b.build();
 
-        run(fastqcWorkflow, "--sequencer-run-name does_not_exist");
+        try {
+            run(fastqcWorkflow, "--sequencer-run-name does_not_exist");
+            Assert.fail("A NotFoundException should have been thrown.");
+        //TODO: } catch (net.sourceforge.seqware.common.err.NotFoundException nfe) {
+        } catch (RuntimeException nfe) {
+        }
+
         DeciderRunTestReport report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 0);
     }
@@ -177,7 +188,12 @@ public class FastqQCDeciderIT {
         b.setSwid(ses.installWorkflow(Helpers.getBundledWorkflow()).getSwid());
         Workflow fastqcWorkflow = b.build();
 
-        run(fastqcWorkflow, "--study-name does_not_exist");
+        try {
+            run(fastqcWorkflow, "--study-name does_not_exist");
+            Assert.fail("A NotFoundException should have been thrown.");
+        } catch (net.sourceforge.seqware.common.err.NotFoundException nfe) {
+        }
+
         DeciderRunTestReport report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 0);
     }
@@ -188,7 +204,12 @@ public class FastqQCDeciderIT {
         b.setSwid(ses.installWorkflow(Helpers.getBundledWorkflow()).getSwid());
         Workflow fastqcWorkflow = b.build();
 
-        run(fastqcWorkflow, "--sample-name does_not_exist");
+        try {
+            run(fastqcWorkflow, "--sample-name does_not_exist");
+            Assert.fail("A NotFoundException should have been thrown.");
+        } catch (net.sourceforge.seqware.common.err.NotFoundException nfe) {
+        }
+
         DeciderRunTestReport report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 0);
     }
