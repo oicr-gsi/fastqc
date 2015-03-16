@@ -60,7 +60,6 @@ public class FastqQCDeciderIT {
         assertNotNull(dbHost, "Set dbHost to a testing Postgres database host name");
         assertNotNull(dbPort, "Set dbPort to a testing Postgres database port");
         assertNotNull(dbUser, "Set dbUser to a testing Postgres database user name");
-        assertNotNull(dbPassword, "Set dbPassword to a testing Postgres database password");
 
         //get the seqware webservice war
         String seqwareWarPath = System.getProperty("seqwareWar");
