@@ -76,9 +76,13 @@ public class WorkflowClient extends OicrWorkflow {
         command.addArgument("--noextract");
         command.addArgument("--outdir " + dataDir);
 
-        String outputFileName = fastqInputFilePath.substring(fastqInputFilePath.lastIndexOf("/") + 1, fastqInputFilePath.lastIndexOf(".fastq")) + "_fastqc.html";
-        SqwFile sqwOutputFile = createOutputFile(dataDir + outputFileName, "text/html", manualOutput);
-        job.addFile(sqwOutputFile);
+        String fastqName = fastqInputFilePath.substring(fastqInputFilePath.lastIndexOf("/") + 1, fastqInputFilePath.lastIndexOf(".fastq"));
+
+        SqwFile htmlReportFile = createOutputFile(dataDir + fastqName + "_fastqc.html", "text/html", manualOutput);
+        job.addFile(htmlReportFile);
+
+        SqwFile zipBundleFile = createOutputFile(dataDir + fastqName + "_fastqc.zip", "application/zip-report-bundle", manualOutput);
+        job.addFile(zipBundleFile);
 
         return job;
     }

@@ -19,7 +19,7 @@
 
     <properties>
         <workflow-name>FastQC</workflow-name>
-        <fastqc-version>0.11.2</fastqc-version>
+        <fastqc-version>0.11.5</fastqc-version>
     </properties>
 
     <dependencies>
