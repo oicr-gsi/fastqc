@@ -10,7 +10,7 @@
         {
             "id": "workflow_test_01",
             "parameters": {
-                "input_files": "/.mounts/labs/PDE/data/RegressionTests/FastQC/workflow/input_config/data/adrenal_1.fastq,/.mounts/labs/PDE/data/RegressionTests/FastQC/workflow/input_config/data/adrenal_2.fastq"
+                "input_files": "/.mounts/labs/PDE/data/FastQC/adrenal_1.fastq,/.mounts/labs/PDE/data/FastQC/adrenal_2.fastq"
             }
         }
     ]
