@@ -12,7 +12,7 @@
   "totalInputFiles" : 153,
   "workflowRuns" : [ {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -57,7 +57,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -134,7 +134,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -211,7 +211,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -288,7 +288,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -365,7 +365,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -442,7 +442,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -523,7 +523,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -604,7 +604,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -685,7 +685,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -766,7 +766,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -847,7 +847,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -928,7 +928,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -1009,7 +1009,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -1090,7 +1090,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -1171,7 +1171,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -1252,7 +1252,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -1333,7 +1333,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -1414,7 +1414,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -1495,7 +1495,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -1576,7 +1576,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -1655,7 +1655,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -1734,7 +1734,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -1779,7 +1779,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -1824,7 +1824,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -1903,7 +1903,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -1948,7 +1948,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -1993,7 +1993,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -2072,7 +2072,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -2151,7 +2151,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -2230,7 +2230,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -2309,7 +2309,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -2388,7 +2388,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -2467,7 +2467,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -2546,7 +2546,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -2625,7 +2625,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -2704,7 +2704,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -2783,7 +2783,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -2862,7 +2862,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -2941,7 +2941,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -3020,7 +3020,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -3099,7 +3099,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -3178,7 +3178,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -3257,7 +3257,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -3302,7 +3302,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -3379,7 +3379,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -3456,7 +3456,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -3533,7 +3533,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -3610,7 +3610,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -3687,7 +3687,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -3764,7 +3764,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -3841,7 +3841,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -3918,7 +3918,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -3962,7 +3962,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -4006,7 +4006,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -4050,7 +4050,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -4094,7 +4094,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -4138,7 +4138,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -4182,7 +4182,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -4226,7 +4226,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -4270,7 +4270,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -4315,7 +4315,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -4394,7 +4394,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -4473,7 +4473,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -4552,7 +4552,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -4631,7 +4631,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -4710,7 +4710,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -4789,7 +4789,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -4868,7 +4868,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -4947,7 +4947,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -4992,7 +4992,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -5037,7 +5037,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -5082,7 +5082,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -5127,7 +5127,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -5172,7 +5172,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -5217,7 +5217,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -5262,7 +5262,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -5307,7 +5307,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -5352,7 +5352,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -5396,7 +5396,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -5473,7 +5473,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -5517,7 +5517,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -5561,7 +5561,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -5671,7 +5671,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -5716,7 +5716,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -5892,7 +5892,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -5936,7 +5936,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -6013,7 +6013,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
@@ -6094,7 +6094,7 @@
     } ]
   }, {
     "workflowIni" : {
-      "fastqc" : "fastqc-0.11.2/fastqc",
+      "fastqc" : "fastqc-0.11.5/fastqc",
       "java" : "jre1.7.0_51/bin/java",
       "manual_output" : "false",
       "metadata" : "metadata",
