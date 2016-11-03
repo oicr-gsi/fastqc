@@ -1,12 +1,14 @@
 {
-    "defaultDescription": "FastQC decider test",
-    "defaultMetricsResources": "/expected_output/development/",
-    "defaultParameters": {
-        "--output-path": "./"
+    "defaults": {
+        "description": "FastQC decider test",
+        "metricsResources": "/expected_output/development/",
+        "parameters": {
+            "--output-path": "./"
+        },
+        "iniExclusions": ["parent-accessions", "workflow_run_accession", "workflow-run-accession",
+            "unique_string", "parent_accessions", "parent_accession", "input_file", "input_files", "workflow_bundle_dir",
+            "output_prefix"]
     },
-    "defaultIniExclusions": ["parent-accessions", "workflow_run_accession", "workflow-run-accession",
-        "unique_string", "parent_accessions", "parent_accession", "input_file", "input_files", "workflow_bundle_dir",
-        "output_prefix"],
     "tests": [
         {
             "id": "AshPC study test",

@@ -21,9 +21,6 @@ public class FastqQCDecider extends OicrDecider {
     private String iniFile = null;
     private List<String> skipSequencerRuns=null;
     
-    //NOTE: order of headers in list matters (group by first, then second, etc)
-    private List<Header> orderedListOfHeadersToGroupBy = Arrays.asList(Header.WORKFLOW_RUN_SWA, Header.IUS_SWA);
-
     public FastqQCDecider() {
         super();
         parser.acceptsAll(Arrays.asList("ini-file"), "Optional: the location of the INI file.").withRequiredArg();
@@ -40,6 +37,7 @@ public class FastqQCDecider extends OicrDecider {
     public ReturnValue init() {
         
         this.setMetaType(Arrays.asList("chemical/seq-na-fastq", "chemical/seq-na-fastq-gzip"));
+        this.setHeadersToGroupBy(Arrays.asList(Header.WORKFLOW_RUN_SWA, Header.SEQUENCER_RUN_NAME, Header.LANE_NUM, Header.SAMPLE_NAME));
 
         ReturnValue ret = super.init();
 
@@ -77,41 +75,6 @@ public class FastqQCDecider extends OicrDecider {
 	}
         return ret;
 
-    }
-
-    @Override
-    public Map<String, List<ReturnValue>> separateFiles(List<ReturnValue> vals, String groupBy) {
-
-        Map<String, List<ReturnValue>> map = new HashMap<String, List<ReturnValue>>();
-
-        //group files according to the designated header (e.g. sample SWID)
-        for (ReturnValue r : vals) {
-
-            StringBuilder keyBuilder = new StringBuilder();
-
-            //iterate through ordered list of headers to group by
-            for (Header h : orderedListOfHeadersToGroupBy) {
-
-                String subKey = r.getAttributes().get(h.getTitle());
-
-                if (subKey != null) {
-                    subKey = handleGroupByAttribute(subKey);
-                }
-
-                keyBuilder.append(String.format("[%s=%s] ", h.getTitle(), subKey));
-            }
-
-            String key = keyBuilder.toString();
-
-            List<ReturnValue> vs = map.get(key);
-            if (vs == null) {
-                vs = new ArrayList<ReturnValue>();
-            }
-            vs.add(r);
-            map.put(key, vs);
-        }
-
-        return map;
     }
 
     @Override

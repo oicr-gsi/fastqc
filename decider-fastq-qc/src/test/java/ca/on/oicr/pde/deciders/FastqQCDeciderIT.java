@@ -1,24 +1,37 @@
 package ca.on.oicr.pde.deciders;
 
-import ca.on.oicr.pde.dao.reader.SeqwareReadService;
-import ca.on.oicr.pde.model.SeqwareObject;
-import ca.on.oicr.pde.model.Workflow;
-import ca.on.oicr.pde.testing.metadata.RegressionTestStudy;
-import ca.on.oicr.pde.dao.writer.SeqwareWriteService;
-import ca.on.oicr.pde.dao.writer.SeqwareWriteService.FileInfo;
-import ca.on.oicr.pde.utilities.Helpers;
+import ca.on.oicr.gsi.provenance.DefaultProvenanceClient;
+import ca.on.oicr.gsi.provenance.ExtendedProvenanceClient;
+import ca.on.oicr.gsi.provenance.FileProvenanceFilter;
+import ca.on.oicr.gsi.provenance.ProvenanceClient;
+import ca.on.oicr.gsi.provenance.SeqwareMetadataAnalysisProvenanceProvider;
+import ca.on.oicr.gsi.provenance.SeqwareMetadataLimsMetadataProvenanceProvider;
+import ca.on.oicr.gsi.provenance.model.SampleProvenance;
+import ca.on.oicr.pde.client.SeqwareClient;
 import ca.on.oicr.pde.dao.executor.SeqwareExecutor;
-import ca.on.oicr.pde.model.Ius;
-import ca.on.oicr.pde.model.WorkflowRunReportRecord;
-import ca.on.oicr.pde.testing.decider.DeciderRunTestReport;
+import ca.on.oicr.pde.testing.metadata.RegressionTestStudy;
+import ca.on.oicr.pde.model.SeqwareObject;
+import ca.on.oicr.pde.reports.WorkflowReport;
+import ca.on.oicr.pde.testing.metadata.RegressionTestStudy.SeqwareObjects;
+import ca.on.oicr.pde.utilities.Helpers;
+import ca.on.oicr.pde.testing.metadata.SeqwareTestEnvironment;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Sets;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import net.sourceforge.seqware.common.metadata.Metadata;
+import net.sourceforge.seqware.common.model.IUS;
+import net.sourceforge.seqware.common.model.Workflow;
+import net.sourceforge.seqware.common.module.FileMetadata;
+import org.apache.commons.lang3.ArrayUtils;
 import org.testng.Assert;
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
@@ -33,16 +46,16 @@ import org.testng.annotations.Test;
  */
 public class FastqQCDeciderIT {
 
-    RegressionTestStudy r;
-    File bundledWorkflow;
-    SeqwareExecutor ses;
-    SeqwareReadService srs;
-    SeqwareWriteService sws;
-    Map<String, SeqwareObject> sos;
-
-    public FastqQCDeciderIT() {
-
-    }
+    private RegressionTestStudy r;
+    private File bundledWorkflow;
+    private ProvenanceClient provenanceClient;
+    private ExtendedProvenanceClient extendedProvenanceClient;
+    private SeqwareClient seqwareClient;
+    private SeqwareExecutor seqwareExecutor;
+    private SeqwareObjects seqwareObjects;
+    private SeqwareTestEnvironment testEnv;
+    private Metadata metadata;
+    private Map<String, String> config;
 
     @BeforeSuite
     public void setupMetadb() {
@@ -67,43 +80,68 @@ public class FastqQCDeciderIT {
         File seqwareWar = new File(seqwareWarPath);
         assertTrue(seqwareWar.exists(), "seqware was is not accessible.");
 
-        //get the regression test study and PDE's service objects
-        r = new RegressionTestStudy(dbHost, dbPort, dbUser, dbPassword, seqwareWar);
-        ses = r.getSeqwareExecutor();
-        srs = r.getSeqwareReadService();
-        sws = r.getSeqwareWriteService();
-        sos = r.getSeqwareObjects();
+        testEnv = new SeqwareTestEnvironment(dbHost, dbPort, dbUser, dbPassword, seqwareWar);
 
-        //set the seqware settings path (needed by Seqware's plugin runner)
-        System.setProperty("SEQWARE_SETTINGS", r.getSeqwareSettings().getAbsolutePath());
+        //get the regression test study and PDE's service objects
+        r = new RegressionTestStudy(testEnv.getSeqwareLimsClient());
+        seqwareClient = testEnv.getSeqwareClient();
+        seqwareExecutor = testEnv.getSeqwareExecutor();
+        seqwareObjects = r.getSeqwareObjects();
+
+        metadata = testEnv.getMetadata();
+        config = testEnv.getSeqwareConfig();
+
+        SeqwareMetadataLimsMetadataProvenanceProvider seqwareMetadataLimsMetadataProvenanceProvider = new SeqwareMetadataLimsMetadataProvenanceProvider(testEnv.getMetadata());
+        SeqwareMetadataAnalysisProvenanceProvider seqwareMetadataAnalysisProvenanceProvider = new SeqwareMetadataAnalysisProvenanceProvider(testEnv.getMetadata());
+        DefaultProvenanceClient dpc = new DefaultProvenanceClient();
+        dpc.registerAnalysisProvenanceProvider("seqware", seqwareMetadataAnalysisProvenanceProvider);
+        dpc.registerSampleProvenanceProvider("seqware", seqwareMetadataLimsMetadataProvenanceProvider);
+        dpc.registerLaneProvenanceProvider("seqware", seqwareMetadataLimsMetadataProvenanceProvider);
+        provenanceClient = dpc;
+        extendedProvenanceClient = dpc;
     }
 
     @BeforeClass
     public void addFiles() {
         //Install base caller to generate fastqs
-        Workflow upstreamWorkflow = sws.createWorkflow("CASAVA", "0.0", "");
+        Workflow upstreamWorkflow = seqwareClient.createWorkflow("CASAVA", "0.0", "");
 
         //get all ius objects and link two fastqs
-        for (Ius ius : Iterables.filter(sos.values(), Ius.class)) {
-            sws.createWorkflowRun(upstreamWorkflow, Arrays.asList(ius),
-                    Arrays.asList(new FileInfo("type", "chemical/seq-na-fastq-gzip", "/tmp/" + ius.getSwid() + ".R1.fastq.gz"),
-                            new FileInfo("type", "chemical/seq-na-fastq-gzip", "/tmp/" + ius.getSwid() + ".R2.fastq.gz")));
+        for (int i = 1; i <= 22; i++) {
+            SeqwareObject obj = seqwareObjects.get("IUS" + i);
+
+            Map<FileProvenanceFilter, Set<String>> filters = new HashMap<>();
+            filters.put(FileProvenanceFilter.sample, ImmutableSet.of(obj.getSwAccession().toString()));
+            Collection<SampleProvenance> sps = provenanceClient.getSampleProvenance(filters);
+            SampleProvenance sp = Iterables.getOnlyElement(sps);
+            IUS ius = seqwareClient.addLims("seqware", sp.getSampleProvenanceId(), sp.getVersion(), sp.getLastModified());
+
+            FileMetadata file1 = new FileMetadata();
+            file1.setDescription("description");
+            file1.setMd5sum("md5sum");
+            file1.setFilePath("/tmp/" + obj.getSwAccession() + ".R1.fastq.gz");
+            file1.setMetaType("chemical/seq-na-fastq-gzip");
+            file1.setType("type?");
+            file1.setSize(1L);
+
+            FileMetadata file2 = new FileMetadata();
+            file2.setDescription("description");
+            file2.setMd5sum("md5sum");
+            file2.setFilePath("/tmp/" + obj.getSwAccession() + ".R2.fastq.gz");
+            file2.setMetaType("chemical/seq-na-fastq-gzip");
+            file2.setType("type?");
+            file2.setSize(1L);
+
+            seqwareClient.createWorkflowRun(upstreamWorkflow, ImmutableSet.of(ius), Collections.EMPTY_LIST, Arrays.asList(file1, file2));
         }
     }
 
     @Test
     public void basicScheduleTest() throws IOException {
-
-        //install the workflow
-        //TODO: installWorkflow should return a workflow...
-        Workflow.Builder b = new Workflow.Builder();
-        b.setName("");
-        b.setVersion("");
-        b.setSwid(ses.installWorkflow(Helpers.getBundledWorkflow()).getSwid());
-        Workflow fastqcWorkflow = b.build();
+        Workflow fastqcWorkflow = seqwareExecutor.installWorkflow(Helpers.getBundledWorkflow());
 
         run(fastqcWorkflow, "--all");
-        DeciderRunTestReport report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
+        WorkflowReport report = WorkflowReport.generateReport(seqwareClient, provenanceClient, fastqcWorkflow);
         Assert.assertEquals(report.getMaxInputFiles().intValue(), 2);
         Assert.assertEquals(report.getMinInputFiles().intValue(), 2);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 16);
@@ -111,124 +149,101 @@ public class FastqQCDeciderIT {
 
         //all fastqs have been scheduled for processing, no new workflow runs should be schedulable
         run(fastqcWorkflow, "--all");
-        DeciderRunTestReport report2 = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
+        WorkflowReport report2 = WorkflowReport.generateReport(seqwareClient, provenanceClient, fastqcWorkflow);
         Assert.assertEquals(report2.getWorkflowRunCount().intValue(), 16);
         Assert.assertEquals(report, report2);
     }
 
     @Test
     public void launchMaxTest() throws IOException {
+        Workflow fastqcWorkflow = seqwareExecutor.installWorkflow(Helpers.getBundledWorkflow());
 
-        Workflow.Builder b = new Workflow.Builder();
-        b.setName("");
-        b.setVersion("");
-        b.setSwid(ses.installWorkflow(Helpers.getBundledWorkflow()).getSwid());
-        Workflow fastqcWorkflow = b.build();
-
-        DeciderRunTestReport report;
+        WorkflowReport report;
 
         //schedule 4 runs
-        run(fastqcWorkflow, "--all", "--launch-max 4");
-        report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
+        run(fastqcWorkflow, "--all", "--launch-max", "4");
+        report = WorkflowReport.generateReport(seqwareClient, provenanceClient, fastqcWorkflow);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 4);
 
         //schedule 4 more runs
-        run(fastqcWorkflow, "--all", "--launch-max 4");
-        report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
+        run(fastqcWorkflow, "--all", "--launch-max", "4");
+        report = WorkflowReport.generateReport(seqwareClient, provenanceClient, fastqcWorkflow);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 8);
 
         //shouldn't schedule anything
-        run(fastqcWorkflow, "--all", "--launch-max 0");
-        report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
+        run(fastqcWorkflow, "--all", "--launch-max", "0");
+        report = WorkflowReport.generateReport(seqwareClient, provenanceClient, fastqcWorkflow);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 8);
 
         //schedule the rest
-        run(fastqcWorkflow, "--all", "--launch-max 20");
-        report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
+        run(fastqcWorkflow, "--all", "--launch-max", "20");
+        report = WorkflowReport.generateReport(seqwareClient, provenanceClient, fastqcWorkflow);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 16);
     }
 
     @Test
     public void missingRootSampleFilterTest() throws IOException {
-        Workflow.Builder b = new Workflow.Builder();
-        b.setSwid(ses.installWorkflow(Helpers.getBundledWorkflow()).getSwid());
-        Workflow fastqcWorkflow = b.build();
+        Workflow fastqcWorkflow = seqwareExecutor.installWorkflow(Helpers.getBundledWorkflow());
 
-        try {
-            run(fastqcWorkflow, "--root-sample-name does_not_exist");
-            Assert.fail("A NotFoundException should have been thrown.");
-        } catch (net.sourceforge.seqware.common.err.NotFoundException nfe) {
-        }
+        run(fastqcWorkflow, "--root-sample-name", "does_not_exist");
 
-        DeciderRunTestReport report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
+        WorkflowReport report = WorkflowReport.generateReport(seqwareClient, provenanceClient, fastqcWorkflow);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 0);
     }
 
     @Test
     public void missingSequencerRunFilterTest() throws IOException {
-        Workflow.Builder b = new Workflow.Builder();
-        b.setSwid(ses.installWorkflow(Helpers.getBundledWorkflow()).getSwid());
-        Workflow fastqcWorkflow = b.build();
+        Workflow fastqcWorkflow = seqwareExecutor.installWorkflow(Helpers.getBundledWorkflow());
 
-        try {
-            run(fastqcWorkflow, "--sequencer-run-name does_not_exist");
-            Assert.fail("A NotFoundException should have been thrown.");
-        //TODO: } catch (net.sourceforge.seqware.common.err.NotFoundException nfe) {
-        } catch (RuntimeException nfe) {
-        }
+        run(fastqcWorkflow, "--sequencer-run-name", "does_not_exist");
 
-        DeciderRunTestReport report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
+        WorkflowReport report = WorkflowReport.generateReport(seqwareClient, provenanceClient, fastqcWorkflow);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 0);
     }
 
     @Test
     public void missingStudyFilterTest() throws IOException {
-        Workflow.Builder b = new Workflow.Builder();
-        b.setSwid(ses.installWorkflow(Helpers.getBundledWorkflow()).getSwid());
-        Workflow fastqcWorkflow = b.build();
+        Workflow fastqcWorkflow = seqwareExecutor.installWorkflow(Helpers.getBundledWorkflow());
 
-        try {
-            run(fastqcWorkflow, "--study-name does_not_exist");
-            Assert.fail("A NotFoundException should have been thrown.");
-        } catch (net.sourceforge.seqware.common.err.NotFoundException nfe) {
-        }
+        run(fastqcWorkflow, "--study-name", "does_not_exist");
 
-        DeciderRunTestReport report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
+        WorkflowReport report = WorkflowReport.generateReport(seqwareClient, provenanceClient, fastqcWorkflow);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 0);
     }
 
     @Test
     public void missingSampleFilterTest() throws IOException {
-        Workflow.Builder b = new Workflow.Builder();
-        b.setSwid(ses.installWorkflow(Helpers.getBundledWorkflow()).getSwid());
-        Workflow fastqcWorkflow = b.build();
+        Workflow fastqcWorkflow = seqwareExecutor.installWorkflow(Helpers.getBundledWorkflow());
 
-        try {
-            run(fastqcWorkflow, "--sample-name does_not_exist");
-            Assert.fail("A NotFoundException should have been thrown.");
-        } catch (net.sourceforge.seqware.common.err.NotFoundException nfe) {
-        }
+        run(fastqcWorkflow, "--sample-name", "does_not_exist");
 
-        DeciderRunTestReport report = DeciderRunTestReport.generateReport(srs, fastqcWorkflow, Collections.EMPTY_LIST, Collections.EMPTY_MAP);
+        WorkflowReport report = WorkflowReport.generateReport(seqwareClient, provenanceClient, fastqcWorkflow);
         Assert.assertEquals(report.getWorkflowRunCount().intValue(), 0);
     }
 
-    private List<WorkflowRunReportRecord> run(Workflow workflow, String... extraDeciderParams) throws IOException {
-        //update the file provenance report (needed by decider)
-        sws.updateFileReport();
-
+    private void run(Workflow workflow, String... extraDeciderParams) throws IOException {
         //run the decider
-        ses.deciderRunSchedule(FastqQCDecider.class.getCanonicalName(), workflow, extraDeciderParams);
+        FastqQCDecider decider = new FastqQCDecider();
+        decider.setProvenanceClient(extendedProvenanceClient);
+        decider.setWorkflowAccession(workflow.getSwAccession().toString());
+        run(decider, Arrays.asList(ArrayUtils.toArray(extraDeciderParams)));
+//        seqwareExecutor.deciderRunSchedule(FastqQCDecider.class.getCanonicalName(), workflow, extraDeciderParams);
+    }
 
-        //get workflow runs
-        srs.update();
-        srs.updateWorkflowRunRecords(workflow); //update() should handle this, but it doesn't... so manually update workflow run records
-        return srs.getWorkflowRunRecords(workflow);
+    private void run(OicrDecider decider, List<String> params) {
+        decider.setMetadata(metadata);
+        decider.setConfig(config);
+        decider.setParams(params);
+        decider.parse_parameters();
+        decider.init();
+        decider.do_test();
+        decider.do_run();
+        decider.clean_up();
     }
 
     @AfterClass
     public void cleanUp() {
-        r.shutdown();
+        testEnv.shutdown();
     }
 
 }
