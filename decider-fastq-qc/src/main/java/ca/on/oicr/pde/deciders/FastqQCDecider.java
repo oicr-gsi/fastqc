@@ -15,34 +15,23 @@ import net.sourceforge.seqware.common.hibernate.FindAllTheFiles.Header;
  */
 public class FastqQCDecider extends OicrDecider {
 
-    private Map<String, String> pathToType = new HashMap<String, String>();
-//    private String folder = "seqware-results";
-//    private String path = "./";
     private String iniFile = null;
-    private List<String> skipSequencerRuns=null;
-    
+    private List<String> skipSequencerRuns = null;
+
     public FastqQCDecider() {
         super();
         parser.acceptsAll(Arrays.asList("ini-file"), "Optional: the location of the INI file.").withRequiredArg();
-	parser.accepts("skip-sequencer-runs", "Optional: comma-separated list of sequencer run names to ignore in this decider run.").withRequiredArg();
-        //parser.accepts("extract", "whether to extract the final QC zip file");
-//        parser.accepts("output-folder", "Optional: the name of the folder to put the output into relative to the output-path. "
-//                + "Corresponds to output-dir in INI file. Default: seqware-results").withRequiredArg();
-//        parser.accepts("output-path", "Optional: the path where the files should be copied to "
-//                + "after analysis. Corresponds to output-prefix in INI file. Default: ./").withRequiredArg();
-
+        parser.accepts("skip-sequencer-runs", "Optional: comma-separated list of sequencer run names to ignore in this decider run.").withRequiredArg();
     }
 
     @Override
     public ReturnValue init() {
-        
+
         this.setMetaType(Arrays.asList("chemical/seq-na-fastq", "chemical/seq-na-fastq-gzip"));
-//        this.setHeadersToGroupBy(Arrays.asList(Header.WORKFLOW_RUN_SWA, Header.SEQUENCER_RUN_NAME, Header.LANE_NUM, Header.SAMPLE_NAME));
+        //this.setHeadersToGroupBy(Arrays.asList(Header.WORKFLOW_RUN_SWA, Header.SEQUENCER_RUN_NAME, Header.LANE_NUM, Header.SAMPLE_NAME, GROUP_ID...));
         this.setHeadersToGroupBy(Arrays.asList(Header.IUS_SWA));
 
         ReturnValue ret = super.init();
-
-        //allows anything defined on the command line to override the 'defaults' here.
 
         if (this.options.has("group-by")) {
             Log.error("I think your workflow run will fail. This fastq-qc workflow handles each fastq file at a time. Please do not use 'group-by' option.");
@@ -53,100 +42,65 @@ public class FastqQCDecider extends OicrDecider {
             if (file.exists()) {
                 iniFile = file.getAbsolutePath();
                 Log.stdout("User specified ini file will be used: " + iniFile);
-                Map<String, String> iniFileMap = MapTools.iniString2Map(iniFile);
-//                folder = iniFileMap.get("output_dir");
-//                path = iniFileMap.get("output_path");
             } else {
                 Log.error("The given INI file does not exist: " + file.getAbsolutePath());
                 ret.setExitStatus(ReturnValue.FILENOTREADABLE);
             }
-
         }
-//        if (options.has("output-folder")) {
-//            folder = options.valueOf("output-folder").toString();
-//        }
-//        if (options.has("output-path")) {
-//            path = options.valueOf("output-path").toString();
-//            if (!path.endsWith("/")) {
-//                path += "/";
-//            }
-//        }
-	if (options.has("skip-sequencer-runs")) {
-	    skipSequencerRuns = Arrays.asList(options.valueOf("skip-sequencer-runs").toString().split(","));
-	}
-        return ret;
 
+        if (options.has("skip-sequencer-runs")) {
+            skipSequencerRuns = Arrays.asList(options.valueOf("skip-sequencer-runs").toString().split(","));
+        }
+
+        return ret;
     }
 
     @Override
     protected String handleGroupByAttribute(String attribute) {
-
         return super.handleGroupByAttribute(attribute);
     }
 
     @Override
     protected boolean checkFileDetails(ReturnValue returnValue, FileMetadata fm) {
-
-        pathToType.put(fm.getFilePath(), fm.getMetaType());
         //FastQC workflow only handles gzipped/unzipped FASTQ format.
         if (!fm.getMetaType().equals("chemical/seq-na-fastq") && !fm.getMetaType().equals("chemical/seq-na-fastq-gzip")) {
             return false;
         }
         // SEQWARE-1809, PDE-474 ensure that deciders only use input from completed workflow runs
         String status = returnValue.getAttribute(FindAllTheFiles.WORKFLOW_RUN_STATUS);
-        if (status == null || !status.equals("completed")){
+        if (status == null || !status.equals("completed")) {
             return false;
         }
-	if (skipSequencerRuns !=null) {
-	    String srn = returnValue.getAttribute(Header.SEQUENCER_RUN_NAME.getTitle());
-	    if (skipSequencerRuns.contains(srn.trim())){
-		return false;
-	    }
-	}	
+        if (skipSequencerRuns != null) {
+            String srn = returnValue.getAttribute(Header.SEQUENCER_RUN_NAME.getTitle());
+            if (skipSequencerRuns.contains(srn.trim())) {
+                return false;
+            }
+        }
         return super.checkFileDetails(returnValue, fm);
-
     }
 
     @Override
     protected Map<String, String> modifyIniFile(String commaSeparatedFilePaths, String commaSeparatedParentAccessions) {
-
         Map<String, String> iniFileMap = super.modifyIniFile(commaSeparatedFilePaths, commaSeparatedParentAccessions);
-
         //Load the user-defined ini-file
         if (options.has("ini-file")) {
             MapTools.ini2Map(iniFile, iniFileMap, false);
         }
 
-//        //Remove "input_files" from ini file - FastQC workflow only one input at a time.
-//        //"input_files" is added to the iniFileMap by BasicDecider (parent of OicrDecider).
-//        iniFileMap.remove("input_files");
-
-        //if the command line has 'extract' option, the final zip file will also be extracted.
-//        if (options.has("extract")) {
-//            iniFileMap.put("extract", "yes");
-//        }
-//        //FastQC workflow only handles one file at a time, so the commaSeparatedFilePaths should be a single file name. Warning has been given
-//        //at when the class instance was created. It is users' responsibility not to use 'group-by' option.
-//        iniFileMap.put("input_file", commaSeparatedFilePaths);
-
         iniFileMap.put("input_files", commaSeparatedFilePaths);
-
-//        if (folder!=null) iniFileMap.put("output_dir", folder);
-//        if (path!=null) iniFileMap.put("output_prefix", path);
 
         return iniFileMap;
     }
 
     public static void main(String args[]) {
-        List<String> params = new ArrayList<String>();
+        List<String> params = new ArrayList<>();
         params.add("--plugin");
         params.add(FastqQCDecider.class.getCanonicalName());
         params.add("--");
         params.addAll(Arrays.asList(args));
         System.out.println("Parameters: " + Arrays.deepToString(params.toArray()));
         net.sourceforge.seqware.pipeline.runner.PluginRunner.main(params.toArray(new String[params.size()]));
-
     }
-
 
 }
