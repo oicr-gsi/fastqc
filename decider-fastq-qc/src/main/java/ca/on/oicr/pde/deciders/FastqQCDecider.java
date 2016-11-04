@@ -37,7 +37,8 @@ public class FastqQCDecider extends OicrDecider {
     public ReturnValue init() {
         
         this.setMetaType(Arrays.asList("chemical/seq-na-fastq", "chemical/seq-na-fastq-gzip"));
-        this.setHeadersToGroupBy(Arrays.asList(Header.WORKFLOW_RUN_SWA, Header.SEQUENCER_RUN_NAME, Header.LANE_NUM, Header.SAMPLE_NAME));
+//        this.setHeadersToGroupBy(Arrays.asList(Header.WORKFLOW_RUN_SWA, Header.SEQUENCER_RUN_NAME, Header.LANE_NUM, Header.SAMPLE_NAME));
+        this.setHeadersToGroupBy(Arrays.asList(Header.IUS_SWA));
 
         ReturnValue ret = super.init();
 
