@@ -23,27 +23,30 @@
     "files" : [ {
       "studyTitle" : [ "SingleCellSeq" ],
       "studyAttributes" : {
-        "study.geo_lab_group_id" : [ [ "138" ] ]
+        "geo_lab_group_id" : [ [ "138" ] ]
       },
-      "experimentName" : [ "Geo_SingleCellSeq_ILLUMINA_WG_{F*101}{..}{R*101}" ],
+      "experimentName" : [ ],
       "experimentAttributes" : { },
       "sampleName" : [ "SCS_0006_nn_n_PE_300_WG" ],
       "sampleAttributes" : {
-        "sample.geo_library_source_template_type" : [ [ "WG" ] ],
-        "sample.geo_reaction_id" : [ [ "7122", "7489", "7490", "7491" ] ],
-        "sample.geo_run_id_and_position_and_slot" : [ [ "1068_6_1", "1130_1_2", "1130_2_2", "1130_3_2" ] ],
-        "sample.geo_template_id" : [ [ "21558" ] ],
-        "sample.geo_template_type" : [ [ "Illumina PE Library Seq" ] ],
-        "sample.geo_tissue_origin" : [ [ "nn" ] ],
-        "sample.geo_tissue_type" : [ [ "n" ] ]
+        "geo_external_name" : [ [ "G3.1-10_H" ] ],
+        "geo_library_source_template_type" : [ [ "WG" ] ],
+        "geo_organism" : [ [ "Homo sapiens" ] ],
+        "geo_prep_kit" : [ [ "GA_multiplex" ] ],
+        "geo_reaction_id" : [ [ "7122", "7489", "7490", "7491" ] ],
+        "geo_run_id_and_position_and_slot" : [ [ "1068_6_1", "1130_1_2", "1130_2_2", "1130_3_2" ] ],
+        "geo_template_id" : [ [ "21539", "21557", "21558" ] ],
+        "geo_template_type" : [ [ "Identity", "Illumina PE Library", "Illumina PE Library Seq" ] ],
+        "geo_tissue_origin" : [ [ "nn" ] ],
+        "geo_tissue_type" : [ [ "n" ] ]
       },
       "sequencerRunName" : [ "120912_h804_0094_BD181GACXX" ],
       "sequencerRunAttributes" : {
-        "sequencerrun.geo_instrument_run_id" : [ [ "1130" ] ]
+        "geo_instrument_run_id" : [ [ "1130" ] ]
       },
       "laneName" : [ "120912_h804_0094_BD181GACXX_lane_1" ],
       "laneAttributes" : {
-        "lane.geo_lane" : [ [ "1" ] ]
+        "geo_lane" : [ [ "1" ] ]
       },
       "iusTag" : [ "NoIndex" ],
       "iusAttributes" : { },
@@ -56,27 +59,30 @@
     }, {
       "studyTitle" : [ "SingleCellSeq" ],
       "studyAttributes" : {
-        "study.geo_lab_group_id" : [ [ "138" ] ]
+        "geo_lab_group_id" : [ [ "138" ] ]
       },
-      "experimentName" : [ "Geo_SingleCellSeq_ILLUMINA_WG_{F*101}{..}{R*101}" ],
+      "experimentName" : [ ],
       "experimentAttributes" : { },
       "sampleName" : [ "SCS_0006_nn_n_PE_300_WG" ],
       "sampleAttributes" : {
-        "sample.geo_library_source_template_type" : [ [ "WG" ] ],
-        "sample.geo_reaction_id" : [ [ "7122", "7489", "7490", "7491" ] ],
-        "sample.geo_run_id_and_position_and_slot" : [ [ "1068_6_1", "1130_1_2", "1130_2_2", "1130_3_2" ] ],
-        "sample.geo_template_id" : [ [ "21558" ] ],
-        "sample.geo_template_type" : [ [ "Illumina PE Library Seq" ] ],
-        "sample.geo_tissue_origin" : [ [ "nn" ] ],
-        "sample.geo_tissue_type" : [ [ "n" ] ]
+        "geo_external_name" : [ [ "G3.1-10_H" ] ],
+        "geo_library_source_template_type" : [ [ "WG" ] ],
+        "geo_organism" : [ [ "Homo sapiens" ] ],
+        "geo_prep_kit" : [ [ "GA_multiplex" ] ],
+        "geo_reaction_id" : [ [ "7122", "7489", "7490", "7491" ] ],
+        "geo_run_id_and_position_and_slot" : [ [ "1068_6_1", "1130_1_2", "1130_2_2", "1130_3_2" ] ],
+        "geo_template_id" : [ [ "21539", "21557", "21558" ] ],
+        "geo_template_type" : [ [ "Identity", "Illumina PE Library", "Illumina PE Library Seq" ] ],
+        "geo_tissue_origin" : [ [ "nn" ] ],
+        "geo_tissue_type" : [ [ "n" ] ]
       },
       "sequencerRunName" : [ "120912_h804_0094_BD181GACXX" ],
       "sequencerRunAttributes" : {
-        "sequencerrun.geo_instrument_run_id" : [ [ "1130" ] ]
+        "geo_instrument_run_id" : [ [ "1130" ] ]
       },
       "laneName" : [ "120912_h804_0094_BD181GACXX_lane_1" ],
       "laneAttributes" : {
-        "lane.geo_lane" : [ [ "1" ] ]
+        "geo_lane" : [ [ "1" ] ]
       },
       "iusTag" : [ "NoIndex" ],
       "iusAttributes" : { },
@@ -100,27 +106,30 @@
     "files" : [ {
       "studyTitle" : [ "SingleCellSeq" ],
       "studyAttributes" : {
-        "study.geo_lab_group_id" : [ [ "138" ] ]
+        "geo_lab_group_id" : [ [ "138" ] ]
       },
-      "experimentName" : [ "Geo_SingleCellSeq_ILLUMINA_WG_{F*101}{..}{R*101}" ],
+      "experimentName" : [ ],
       "experimentAttributes" : { },
       "sampleName" : [ "SCS_0006_nn_n_PE_300_WG" ],
       "sampleAttributes" : {
-        "sample.geo_library_source_template_type" : [ [ "WG" ] ],
-        "sample.geo_reaction_id" : [ [ "7122", "7489", "7490", "7491" ] ],
-        "sample.geo_run_id_and_position_and_slot" : [ [ "1068_6_1", "1130_1_2", "1130_2_2", "1130_3_2" ] ],
-        "sample.geo_template_id" : [ [ "21558" ] ],
-        "sample.geo_template_type" : [ [ "Illumina PE Library Seq" ] ],
-        "sample.geo_tissue_origin" : [ [ "nn" ] ],
-        "sample.geo_tissue_type" : [ [ "n" ] ]
+        "geo_external_name" : [ [ "G3.1-10_H" ] ],
+        "geo_library_source_template_type" : [ [ "WG" ] ],
+        "geo_organism" : [ [ "Homo sapiens" ] ],
+        "geo_prep_kit" : [ [ "GA_multiplex" ] ],
+        "geo_reaction_id" : [ [ "7122", "7489", "7490", "7491" ] ],
+        "geo_run_id_and_position_and_slot" : [ [ "1068_6_1", "1130_1_2", "1130_2_2", "1130_3_2" ] ],
+        "geo_template_id" : [ [ "21539", "21557", "21558" ] ],
+        "geo_template_type" : [ [ "Identity", "Illumina PE Library", "Illumina PE Library Seq" ] ],
+        "geo_tissue_origin" : [ [ "nn" ] ],
+        "geo_tissue_type" : [ [ "n" ] ]
       },
       "sequencerRunName" : [ "120912_h804_0094_BD181GACXX" ],
       "sequencerRunAttributes" : {
-        "sequencerrun.geo_instrument_run_id" : [ [ "1130" ] ]
+        "geo_instrument_run_id" : [ [ "1130" ] ]
       },
       "laneName" : [ "120912_h804_0094_BD181GACXX_lane_2" ],
       "laneAttributes" : {
-        "lane.geo_lane" : [ [ "2" ] ]
+        "geo_lane" : [ [ "2" ] ]
       },
       "iusTag" : [ "NoIndex" ],
       "iusAttributes" : { },
@@ -133,27 +142,30 @@
     }, {
       "studyTitle" : [ "SingleCellSeq" ],
       "studyAttributes" : {
-        "study.geo_lab_group_id" : [ [ "138" ] ]
+        "geo_lab_group_id" : [ [ "138" ] ]
       },
-      "experimentName" : [ "Geo_SingleCellSeq_ILLUMINA_WG_{F*101}{..}{R*101}" ],
+      "experimentName" : [ ],
       "experimentAttributes" : { },
       "sampleName" : [ "SCS_0006_nn_n_PE_300_WG" ],
       "sampleAttributes" : {
-        "sample.geo_library_source_template_type" : [ [ "WG" ] ],
-        "sample.geo_reaction_id" : [ [ "7122", "7489", "7490", "7491" ] ],
-        "sample.geo_run_id_and_position_and_slot" : [ [ "1068_6_1", "1130_1_2", "1130_2_2", "1130_3_2" ] ],
-        "sample.geo_template_id" : [ [ "21558" ] ],
-        "sample.geo_template_type" : [ [ "Illumina PE Library Seq" ] ],
-        "sample.geo_tissue_origin" : [ [ "nn" ] ],
-        "sample.geo_tissue_type" : [ [ "n" ] ]
+        "geo_external_name" : [ [ "G3.1-10_H" ] ],
+        "geo_library_source_template_type" : [ [ "WG" ] ],
+        "geo_organism" : [ [ "Homo sapiens" ] ],
+        "geo_prep_kit" : [ [ "GA_multiplex" ] ],
+        "geo_reaction_id" : [ [ "7122", "7489", "7490", "7491" ] ],
+        "geo_run_id_and_position_and_slot" : [ [ "1068_6_1", "1130_1_2", "1130_2_2", "1130_3_2" ] ],
+        "geo_template_id" : [ [ "21539", "21557", "21558" ] ],
+        "geo_template_type" : [ [ "Identity", "Illumina PE Library", "Illumina PE Library Seq" ] ],
+        "geo_tissue_origin" : [ [ "nn" ] ],
+        "geo_tissue_type" : [ [ "n" ] ]
       },
       "sequencerRunName" : [ "120912_h804_0094_BD181GACXX" ],
       "sequencerRunAttributes" : {
-        "sequencerrun.geo_instrument_run_id" : [ [ "1130" ] ]
+        "geo_instrument_run_id" : [ [ "1130" ] ]
       },
       "laneName" : [ "120912_h804_0094_BD181GACXX_lane_2" ],
       "laneAttributes" : {
-        "lane.geo_lane" : [ [ "2" ] ]
+        "geo_lane" : [ [ "2" ] ]
       },
       "iusTag" : [ "NoIndex" ],
       "iusAttributes" : { },
@@ -177,27 +189,30 @@
     "files" : [ {
       "studyTitle" : [ "SingleCellSeq" ],
       "studyAttributes" : {
-        "study.geo_lab_group_id" : [ [ "138" ] ]
+        "geo_lab_group_id" : [ [ "138" ] ]
       },
-      "experimentName" : [ "Geo_SingleCellSeq_ILLUMINA_WG_{F*101}{..}{R*101}" ],
+      "experimentName" : [ ],
       "experimentAttributes" : { },
       "sampleName" : [ "SCS_0006_nn_n_PE_300_WG" ],
       "sampleAttributes" : {
-        "sample.geo_library_source_template_type" : [ [ "WG" ] ],
-        "sample.geo_reaction_id" : [ [ "7122", "7489", "7490", "7491" ] ],
-        "sample.geo_run_id_and_position_and_slot" : [ [ "1068_6_1", "1130_1_2", "1130_2_2", "1130_3_2" ] ],
-        "sample.geo_template_id" : [ [ "21558" ] ],
-        "sample.geo_template_type" : [ [ "Illumina PE Library Seq" ] ],
-        "sample.geo_tissue_origin" : [ [ "nn" ] ],
-        "sample.geo_tissue_type" : [ [ "n" ] ]
+        "geo_external_name" : [ [ "G3.1-10_H" ] ],
+        "geo_library_source_template_type" : [ [ "WG" ] ],
+        "geo_organism" : [ [ "Homo sapiens" ] ],
+        "geo_prep_kit" : [ [ "GA_multiplex" ] ],
+        "geo_reaction_id" : [ [ "7122", "7489", "7490", "7491" ] ],
+        "geo_run_id_and_position_and_slot" : [ [ "1068_6_1", "1130_1_2", "1130_2_2", "1130_3_2" ] ],
+        "geo_template_id" : [ [ "21539", "21557", "21558" ] ],
+        "geo_template_type" : [ [ "Identity", "Illumina PE Library", "Illumina PE Library Seq" ] ],
+        "geo_tissue_origin" : [ [ "nn" ] ],
+        "geo_tissue_type" : [ [ "n" ] ]
       },
       "sequencerRunName" : [ "120912_h804_0094_BD181GACXX" ],
       "sequencerRunAttributes" : {
-        "sequencerrun.geo_instrument_run_id" : [ [ "1130" ] ]
+        "geo_instrument_run_id" : [ [ "1130" ] ]
       },
       "laneName" : [ "120912_h804_0094_BD181GACXX_lane_3" ],
       "laneAttributes" : {
-        "lane.geo_lane" : [ [ "3" ] ]
+        "geo_lane" : [ [ "3" ] ]
       },
       "iusTag" : [ "NoIndex" ],
       "iusAttributes" : { },
@@ -210,27 +225,30 @@
     }, {
       "studyTitle" : [ "SingleCellSeq" ],
       "studyAttributes" : {
-        "study.geo_lab_group_id" : [ [ "138" ] ]
+        "geo_lab_group_id" : [ [ "138" ] ]
       },
-      "experimentName" : [ "Geo_SingleCellSeq_ILLUMINA_WG_{F*101}{..}{R*101}" ],
+      "experimentName" : [ ],
       "experimentAttributes" : { },
       "sampleName" : [ "SCS_0006_nn_n_PE_300_WG" ],
       "sampleAttributes" : {
-        "sample.geo_library_source_template_type" : [ [ "WG" ] ],
-        "sample.geo_reaction_id" : [ [ "7122", "7489", "7490", "7491" ] ],
-        "sample.geo_run_id_and_position_and_slot" : [ [ "1068_6_1", "1130_1_2", "1130_2_2", "1130_3_2" ] ],
-        "sample.geo_template_id" : [ [ "21558" ] ],
-        "sample.geo_template_type" : [ [ "Illumina PE Library Seq" ] ],
-        "sample.geo_tissue_origin" : [ [ "nn" ] ],
-        "sample.geo_tissue_type" : [ [ "n" ] ]
+        "geo_external_name" : [ [ "G3.1-10_H" ] ],
+        "geo_library_source_template_type" : [ [ "WG" ] ],
+        "geo_organism" : [ [ "Homo sapiens" ] ],
+        "geo_prep_kit" : [ [ "GA_multiplex" ] ],
+        "geo_reaction_id" : [ [ "7122", "7489", "7490", "7491" ] ],
+        "geo_run_id_and_position_and_slot" : [ [ "1068_6_1", "1130_1_2", "1130_2_2", "1130_3_2" ] ],
+        "geo_template_id" : [ [ "21539", "21557", "21558" ] ],
+        "geo_template_type" : [ [ "Identity", "Illumina PE Library", "Illumina PE Library Seq" ] ],
+        "geo_tissue_origin" : [ [ "nn" ] ],
+        "geo_tissue_type" : [ [ "n" ] ]
       },
       "sequencerRunName" : [ "120912_h804_0094_BD181GACXX" ],
       "sequencerRunAttributes" : {
-        "sequencerrun.geo_instrument_run_id" : [ [ "1130" ] ]
+        "geo_instrument_run_id" : [ [ "1130" ] ]
       },
       "laneName" : [ "120912_h804_0094_BD181GACXX_lane_3" ],
       "laneAttributes" : {
-        "lane.geo_lane" : [ [ "3" ] ]
+        "geo_lane" : [ [ "3" ] ]
       },
       "iusTag" : [ "NoIndex" ],
       "iusAttributes" : { },
@@ -254,27 +272,30 @@
     "files" : [ {
       "studyTitle" : [ "SingleCellSeq" ],
       "studyAttributes" : {
-        "study.geo_lab_group_id" : [ [ "138" ] ]
+        "geo_lab_group_id" : [ [ "138" ] ]
       },
-      "experimentName" : [ "Geo_SingleCellSeq_ILLUMINA_WG_{F*101}{..}{R*101}" ],
+      "experimentName" : [ ],
       "experimentAttributes" : { },
       "sampleName" : [ "SCS_0007_nn_n_PE_300_WG" ],
       "sampleAttributes" : {
-        "sample.geo_library_source_template_type" : [ [ "WG" ] ],
-        "sample.geo_reaction_id" : [ [ "7134", "7492", "7493", "7494" ] ],
-        "sample.geo_run_id_and_position_and_slot" : [ [ "1070_6_1", "1130_4_2", "1130_5_2", "1130_6_2" ] ],
-        "sample.geo_template_id" : [ [ "21560" ] ],
-        "sample.geo_template_type" : [ [ "Illumina PE Library Seq" ] ],
-        "sample.geo_tissue_origin" : [ [ "nn" ] ],
-        "sample.geo_tissue_type" : [ [ "n" ] ]
+        "geo_external_name" : [ [ "G0" ] ],
+        "geo_library_source_template_type" : [ [ "WG" ] ],
+        "geo_organism" : [ [ "Homo sapiens" ] ],
+        "geo_prep_kit" : [ [ "GA_multiplex" ] ],
+        "geo_reaction_id" : [ [ "7134", "7492", "7493", "7494" ] ],
+        "geo_run_id_and_position_and_slot" : [ [ "1070_6_1", "1130_4_2", "1130_5_2", "1130_6_2" ] ],
+        "geo_template_id" : [ [ "21540", "21559", "21560" ] ],
+        "geo_template_type" : [ [ "Identity", "Illumina PE Library", "Illumina PE Library Seq" ] ],
+        "geo_tissue_origin" : [ [ "nn" ] ],
+        "geo_tissue_type" : [ [ "n" ] ]
       },
       "sequencerRunName" : [ "120912_h804_0094_BD181GACXX" ],
       "sequencerRunAttributes" : {
-        "sequencerrun.geo_instrument_run_id" : [ [ "1130" ] ]
+        "geo_instrument_run_id" : [ [ "1130" ] ]
       },
       "laneName" : [ "120912_h804_0094_BD181GACXX_lane_4" ],
       "laneAttributes" : {
-        "lane.geo_lane" : [ [ "4" ] ]
+        "geo_lane" : [ [ "4" ] ]
       },
       "iusTag" : [ "NoIndex" ],
       "iusAttributes" : { },
@@ -287,27 +308,30 @@
     }, {
       "studyTitle" : [ "SingleCellSeq" ],
       "studyAttributes" : {
-        "study.geo_lab_group_id" : [ [ "138" ] ]
+        "geo_lab_group_id" : [ [ "138" ] ]
       },
-      "experimentName" : [ "Geo_SingleCellSeq_ILLUMINA_WG_{F*101}{..}{R*101}" ],
+      "experimentName" : [ ],
       "experimentAttributes" : { },
       "sampleName" : [ "SCS_0007_nn_n_PE_300_WG" ],
       "sampleAttributes" : {
-        "sample.geo_library_source_template_type" : [ [ "WG" ] ],
-        "sample.geo_reaction_id" : [ [ "7134", "7492", "7493", "7494" ] ],
-        "sample.geo_run_id_and_position_and_slot" : [ [ "1070_6_1", "1130_4_2", "1130_5_2", "1130_6_2" ] ],
-        "sample.geo_template_id" : [ [ "21560" ] ],
-        "sample.geo_template_type" : [ [ "Illumina PE Library Seq" ] ],
-        "sample.geo_tissue_origin" : [ [ "nn" ] ],
-        "sample.geo_tissue_type" : [ [ "n" ] ]
+        "geo_external_name" : [ [ "G0" ] ],
+        "geo_library_source_template_type" : [ [ "WG" ] ],
+        "geo_organism" : [ [ "Homo sapiens" ] ],
+        "geo_prep_kit" : [ [ "GA_multiplex" ] ],
+        "geo_reaction_id" : [ [ "7134", "7492", "7493", "7494" ] ],
+        "geo_run_id_and_position_and_slot" : [ [ "1070_6_1", "1130_4_2", "1130_5_2", "1130_6_2" ] ],
+        "geo_template_id" : [ [ "21540", "21559", "21560" ] ],
+        "geo_template_type" : [ [ "Identity", "Illumina PE Library", "Illumina PE Library Seq" ] ],
+        "geo_tissue_origin" : [ [ "nn" ] ],
+        "geo_tissue_type" : [ [ "n" ] ]
       },
       "sequencerRunName" : [ "120912_h804_0094_BD181GACXX" ],
       "sequencerRunAttributes" : {
-        "sequencerrun.geo_instrument_run_id" : [ [ "1130" ] ]
+        "geo_instrument_run_id" : [ [ "1130" ] ]
       },
       "laneName" : [ "120912_h804_0094_BD181GACXX_lane_4" ],
       "laneAttributes" : {
-        "lane.geo_lane" : [ [ "4" ] ]
+        "geo_lane" : [ [ "4" ] ]
       },
       "iusTag" : [ "NoIndex" ],
       "iusAttributes" : { },
@@ -331,27 +355,30 @@
     "files" : [ {
       "studyTitle" : [ "SingleCellSeq" ],
       "studyAttributes" : {
-        "study.geo_lab_group_id" : [ [ "138" ] ]
+        "geo_lab_group_id" : [ [ "138" ] ]
       },
-      "experimentName" : [ "Geo_SingleCellSeq_ILLUMINA_WG_{F*101}{..}{R*101}" ],
+      "experimentName" : [ ],
       "experimentAttributes" : { },
       "sampleName" : [ "SCS_0007_nn_n_PE_300_WG" ],
       "sampleAttributes" : {
-        "sample.geo_library_source_template_type" : [ [ "WG" ] ],
-        "sample.geo_reaction_id" : [ [ "7134", "7492", "7493", "7494" ] ],
-        "sample.geo_run_id_and_position_and_slot" : [ [ "1070_6_1", "1130_4_2", "1130_5_2", "1130_6_2" ] ],
-        "sample.geo_template_id" : [ [ "21560" ] ],
-        "sample.geo_template_type" : [ [ "Illumina PE Library Seq" ] ],
-        "sample.geo_tissue_origin" : [ [ "nn" ] ],
-        "sample.geo_tissue_type" : [ [ "n" ] ]
+        "geo_external_name" : [ [ "G0" ] ],
+        "geo_library_source_template_type" : [ [ "WG" ] ],
+        "geo_organism" : [ [ "Homo sapiens" ] ],
+        "geo_prep_kit" : [ [ "GA_multiplex" ] ],
+        "geo_reaction_id" : [ [ "7134", "7492", "7493", "7494" ] ],
+        "geo_run_id_and_position_and_slot" : [ [ "1070_6_1", "1130_4_2", "1130_5_2", "1130_6_2" ] ],
+        "geo_template_id" : [ [ "21540", "21559", "21560" ] ],
+        "geo_template_type" : [ [ "Identity", "Illumina PE Library", "Illumina PE Library Seq" ] ],
+        "geo_tissue_origin" : [ [ "nn" ] ],
+        "geo_tissue_type" : [ [ "n" ] ]
       },
       "sequencerRunName" : [ "120912_h804_0094_BD181GACXX" ],
       "sequencerRunAttributes" : {
-        "sequencerrun.geo_instrument_run_id" : [ [ "1130" ] ]
+        "geo_instrument_run_id" : [ [ "1130" ] ]
       },
       "laneName" : [ "120912_h804_0094_BD181GACXX_lane_5" ],
       "laneAttributes" : {
-        "lane.geo_lane" : [ [ "5" ] ]
+        "geo_lane" : [ [ "5" ] ]
       },
       "iusTag" : [ "NoIndex" ],
       "iusAttributes" : { },
@@ -364,27 +391,30 @@
     }, {
       "studyTitle" : [ "SingleCellSeq" ],
       "studyAttributes" : {
-        "study.geo_lab_group_id" : [ [ "138" ] ]
+        "geo_lab_group_id" : [ [ "138" ] ]
       },
-      "experimentName" : [ "Geo_SingleCellSeq_ILLUMINA_WG_{F*101}{..}{R*101}" ],
+      "experimentName" : [ ],
       "experimentAttributes" : { },
       "sampleName" : [ "SCS_0007_nn_n_PE_300_WG" ],
       "sampleAttributes" : {
-        "sample.geo_library_source_template_type" : [ [ "WG" ] ],
-        "sample.geo_reaction_id" : [ [ "7134", "7492", "7493", "7494" ] ],
-        "sample.geo_run_id_and_position_and_slot" : [ [ "1070_6_1", "1130_4_2", "1130_5_2", "1130_6_2" ] ],
-        "sample.geo_template_id" : [ [ "21560" ] ],
-        "sample.geo_template_type" : [ [ "Illumina PE Library Seq" ] ],
-        "sample.geo_tissue_origin" : [ [ "nn" ] ],
-        "sample.geo_tissue_type" : [ [ "n" ] ]
+        "geo_external_name" : [ [ "G0" ] ],
+        "geo_library_source_template_type" : [ [ "WG" ] ],
+        "geo_organism" : [ [ "Homo sapiens" ] ],
+        "geo_prep_kit" : [ [ "GA_multiplex" ] ],
+        "geo_reaction_id" : [ [ "7134", "7492", "7493", "7494" ] ],
+        "geo_run_id_and_position_and_slot" : [ [ "1070_6_1", "1130_4_2", "1130_5_2", "1130_6_2" ] ],
+        "geo_template_id" : [ [ "21540", "21559", "21560" ] ],
+        "geo_template_type" : [ [ "Identity", "Illumina PE Library", "Illumina PE Library Seq" ] ],
+        "geo_tissue_origin" : [ [ "nn" ] ],
+        "geo_tissue_type" : [ [ "n" ] ]
       },
       "sequencerRunName" : [ "120912_h804_0094_BD181GACXX" ],
       "sequencerRunAttributes" : {
-        "sequencerrun.geo_instrument_run_id" : [ [ "1130" ] ]
+        "geo_instrument_run_id" : [ [ "1130" ] ]
       },
       "laneName" : [ "120912_h804_0094_BD181GACXX_lane_5" ],
       "laneAttributes" : {
-        "lane.geo_lane" : [ [ "5" ] ]
+        "geo_lane" : [ [ "5" ] ]
       },
       "iusTag" : [ "NoIndex" ],
       "iusAttributes" : { },
@@ -408,27 +438,30 @@
     "files" : [ {
       "studyTitle" : [ "SingleCellSeq" ],
       "studyAttributes" : {
-        "study.geo_lab_group_id" : [ [ "138" ] ]
+        "geo_lab_group_id" : [ [ "138" ] ]
       },
-      "experimentName" : [ "Geo_SingleCellSeq_ILLUMINA_WG_{F*101}{..}{R*101}" ],
+      "experimentName" : [ ],
       "experimentAttributes" : { },
       "sampleName" : [ "SCS_0007_nn_n_PE_300_WG" ],
       "sampleAttributes" : {
-        "sample.geo_library_source_template_type" : [ [ "WG" ] ],
-        "sample.geo_reaction_id" : [ [ "7134", "7492", "7493", "7494" ] ],
-        "sample.geo_run_id_and_position_and_slot" : [ [ "1070_6_1", "1130_4_2", "1130_5_2", "1130_6_2" ] ],
-        "sample.geo_template_id" : [ [ "21560" ] ],
-        "sample.geo_template_type" : [ [ "Illumina PE Library Seq" ] ],
-        "sample.geo_tissue_origin" : [ [ "nn" ] ],
-        "sample.geo_tissue_type" : [ [ "n" ] ]
+        "geo_external_name" : [ [ "G0" ] ],
+        "geo_library_source_template_type" : [ [ "WG" ] ],
+        "geo_organism" : [ [ "Homo sapiens" ] ],
+        "geo_prep_kit" : [ [ "GA_multiplex" ] ],
+        "geo_reaction_id" : [ [ "7134", "7492", "7493", "7494" ] ],
+        "geo_run_id_and_position_and_slot" : [ [ "1070_6_1", "1130_4_2", "1130_5_2", "1130_6_2" ] ],
+        "geo_template_id" : [ [ "21540", "21559", "21560" ] ],
+        "geo_template_type" : [ [ "Identity", "Illumina PE Library", "Illumina PE Library Seq" ] ],
+        "geo_tissue_origin" : [ [ "nn" ] ],
+        "geo_tissue_type" : [ [ "n" ] ]
       },
       "sequencerRunName" : [ "120912_h804_0094_BD181GACXX" ],
       "sequencerRunAttributes" : {
-        "sequencerrun.geo_instrument_run_id" : [ [ "1130" ] ]
+        "geo_instrument_run_id" : [ [ "1130" ] ]
       },
       "laneName" : [ "120912_h804_0094_BD181GACXX_lane_6" ],
       "laneAttributes" : {
-        "lane.geo_lane" : [ [ "6" ] ]
+        "geo_lane" : [ [ "6" ] ]
       },
       "iusTag" : [ "NoIndex" ],
       "iusAttributes" : { },
@@ -441,27 +474,30 @@
     }, {
       "studyTitle" : [ "SingleCellSeq" ],
       "studyAttributes" : {
-        "study.geo_lab_group_id" : [ [ "138" ] ]
+        "geo_lab_group_id" : [ [ "138" ] ]
       },
-      "experimentName" : [ "Geo_SingleCellSeq_ILLUMINA_WG_{F*101}{..}{R*101}" ],
+      "experimentName" : [ ],
       "experimentAttributes" : { },
       "sampleName" : [ "SCS_0007_nn_n_PE_300_WG" ],
       "sampleAttributes" : {
-        "sample.geo_library_source_template_type" : [ [ "WG" ] ],
-        "sample.geo_reaction_id" : [ [ "7134", "7492", "7493", "7494" ] ],
-        "sample.geo_run_id_and_position_and_slot" : [ [ "1070_6_1", "1130_4_2", "1130_5_2", "1130_6_2" ] ],
-        "sample.geo_template_id" : [ [ "21560" ] ],
-        "sample.geo_template_type" : [ [ "Illumina PE Library Seq" ] ],
-        "sample.geo_tissue_origin" : [ [ "nn" ] ],
-        "sample.geo_tissue_type" : [ [ "n" ] ]
+        "geo_external_name" : [ [ "G0" ] ],
+        "geo_library_source_template_type" : [ [ "WG" ] ],
+        "geo_organism" : [ [ "Homo sapiens" ] ],
+        "geo_prep_kit" : [ [ "GA_multiplex" ] ],
+        "geo_reaction_id" : [ [ "7134", "7492", "7493", "7494" ] ],
+        "geo_run_id_and_position_and_slot" : [ [ "1070_6_1", "1130_4_2", "1130_5_2", "1130_6_2" ] ],
+        "geo_template_id" : [ [ "21540", "21559", "21560" ] ],
+        "geo_template_type" : [ [ "Identity", "Illumina PE Library", "Illumina PE Library Seq" ] ],
+        "geo_tissue_origin" : [ [ "nn" ] ],
+        "geo_tissue_type" : [ [ "n" ] ]
       },
       "sequencerRunName" : [ "120912_h804_0094_BD181GACXX" ],
       "sequencerRunAttributes" : {
-        "sequencerrun.geo_instrument_run_id" : [ [ "1130" ] ]
+        "geo_instrument_run_id" : [ [ "1130" ] ]
       },
       "laneName" : [ "120912_h804_0094_BD181GACXX_lane_6" ],
       "laneAttributes" : {
-        "lane.geo_lane" : [ [ "6" ] ]
+        "geo_lane" : [ [ "6" ] ]
       },
       "iusTag" : [ "NoIndex" ],
       "iusAttributes" : { },
@@ -485,27 +521,30 @@
     "files" : [ {
       "studyTitle" : [ "SingleCellSeq" ],
       "studyAttributes" : {
-        "study.geo_lab_group_id" : [ [ "138" ] ]
+        "geo_lab_group_id" : [ [ "138" ] ]
       },
-      "experimentName" : [ "Geo_SingleCellSeq_ILLUMINA_WG_{F*101}{..}{R*101}" ],
+      "experimentName" : [ ],
       "experimentAttributes" : { },
       "sampleName" : [ "SCS_0008_nn_n_PE_300_WG" ],
       "sampleAttributes" : {
-        "sample.geo_library_source_template_type" : [ [ "WG" ] ],
-        "sample.geo_reaction_id" : [ [ "7135", "7495", "7496" ] ],
-        "sample.geo_run_id_and_position_and_slot" : [ [ "1070_7_1", "1130_7_2", "1130_8_2" ] ],
-        "sample.geo_template_id" : [ [ "21562" ] ],
-        "sample.geo_template_type" : [ [ "Illumina PE Library Seq" ] ],
-        "sample.geo_tissue_origin" : [ [ "nn" ] ],
-        "sample.geo_tissue_type" : [ [ "n" ] ]
+        "geo_external_name" : [ [ "G2.5" ] ],
+        "geo_library_source_template_type" : [ [ "WG" ] ],
+        "geo_organism" : [ [ "Homo sapiens" ] ],
+        "geo_prep_kit" : [ [ "GA_multiplex" ] ],
+        "geo_reaction_id" : [ [ "7135", "7495", "7496" ] ],
+        "geo_run_id_and_position_and_slot" : [ [ "1070_7_1", "1130_7_2", "1130_8_2" ] ],
+        "geo_template_id" : [ [ "21541", "21561", "21562" ] ],
+        "geo_template_type" : [ [ "Identity", "Illumina PE Library", "Illumina PE Library Seq" ] ],
+        "geo_tissue_origin" : [ [ "nn" ] ],
+        "geo_tissue_type" : [ [ "n" ] ]
       },
       "sequencerRunName" : [ "120912_h804_0094_BD181GACXX" ],
       "sequencerRunAttributes" : {
-        "sequencerrun.geo_instrument_run_id" : [ [ "1130" ] ]
+        "geo_instrument_run_id" : [ [ "1130" ] ]
       },
       "laneName" : [ "120912_h804_0094_BD181GACXX_lane_7" ],
       "laneAttributes" : {
-        "lane.geo_lane" : [ [ "7" ] ]
+        "geo_lane" : [ [ "7" ] ]
       },
       "iusTag" : [ "NoIndex" ],
       "iusAttributes" : { },
@@ -518,27 +557,30 @@
     }, {
       "studyTitle" : [ "SingleCellSeq" ],
       "studyAttributes" : {
-        "study.geo_lab_group_id" : [ [ "138" ] ]
+        "geo_lab_group_id" : [ [ "138" ] ]
       },
-      "experimentName" : [ "Geo_SingleCellSeq_ILLUMINA_WG_{F*101}{..}{R*101}" ],
+      "experimentName" : [ ],
       "experimentAttributes" : { },
       "sampleName" : [ "SCS_0008_nn_n_PE_300_WG" ],
       "sampleAttributes" : {
-        "sample.geo_library_source_template_type" : [ [ "WG" ] ],
-        "sample.geo_reaction_id" : [ [ "7135", "7495", "7496" ] ],
-        "sample.geo_run_id_and_position_and_slot" : [ [ "1070_7_1", "1130_7_2", "1130_8_2" ] ],
-        "sample.geo_template_id" : [ [ "21562" ] ],
-        "sample.geo_template_type" : [ [ "Illumina PE Library Seq" ] ],
-        "sample.geo_tissue_origin" : [ [ "nn" ] ],
-        "sample.geo_tissue_type" : [ [ "n" ] ]
+        "geo_external_name" : [ [ "G2.5" ] ],
+        "geo_library_source_template_type" : [ [ "WG" ] ],
+        "geo_organism" : [ [ "Homo sapiens" ] ],
+        "geo_prep_kit" : [ [ "GA_multiplex" ] ],
+        "geo_reaction_id" : [ [ "7135", "7495", "7496" ] ],
+        "geo_run_id_and_position_and_slot" : [ [ "1070_7_1", "1130_7_2", "1130_8_2" ] ],
+        "geo_template_id" : [ [ "21541", "21561", "21562" ] ],
+        "geo_template_type" : [ [ "Identity", "Illumina PE Library", "Illumina PE Library Seq" ] ],
+        "geo_tissue_origin" : [ [ "nn" ] ],
+        "geo_tissue_type" : [ [ "n" ] ]
       },
       "sequencerRunName" : [ "120912_h804_0094_BD181GACXX" ],
       "sequencerRunAttributes" : {
-        "sequencerrun.geo_instrument_run_id" : [ [ "1130" ] ]
+        "geo_instrument_run_id" : [ [ "1130" ] ]
       },
       "laneName" : [ "120912_h804_0094_BD181GACXX_lane_7" ],
       "laneAttributes" : {
-        "lane.geo_lane" : [ [ "7" ] ]
+        "geo_lane" : [ [ "7" ] ]
       },
       "iusTag" : [ "NoIndex" ],
       "iusAttributes" : { },
@@ -562,27 +604,30 @@
     "files" : [ {
       "studyTitle" : [ "SingleCellSeq" ],
       "studyAttributes" : {
-        "study.geo_lab_group_id" : [ [ "138" ] ]
+        "geo_lab_group_id" : [ [ "138" ] ]
       },
-      "experimentName" : [ "Geo_SingleCellSeq_ILLUMINA_WG_{F*101}{..}{R*101}" ],
+      "experimentName" : [ ],
       "experimentAttributes" : { },
       "sampleName" : [ "SCS_0008_nn_n_PE_300_WG" ],
       "sampleAttributes" : {
-        "sample.geo_library_source_template_type" : [ [ "WG" ] ],
-        "sample.geo_reaction_id" : [ [ "7135", "7495", "7496" ] ],
-        "sample.geo_run_id_and_position_and_slot" : [ [ "1070_7_1", "1130_7_2", "1130_8_2" ] ],
-        "sample.geo_template_id" : [ [ "21562" ] ],
-        "sample.geo_template_type" : [ [ "Illumina PE Library Seq" ] ],
-        "sample.geo_tissue_origin" : [ [ "nn" ] ],
-        "sample.geo_tissue_type" : [ [ "n" ] ]
+        "geo_external_name" : [ [ "G2.5" ] ],
+        "geo_library_source_template_type" : [ [ "WG" ] ],
+        "geo_organism" : [ [ "Homo sapiens" ] ],
+        "geo_prep_kit" : [ [ "GA_multiplex" ] ],
+        "geo_reaction_id" : [ [ "7135", "7495", "7496" ] ],
+        "geo_run_id_and_position_and_slot" : [ [ "1070_7_1", "1130_7_2", "1130_8_2" ] ],
+        "geo_template_id" : [ [ "21541", "21561", "21562" ] ],
+        "geo_template_type" : [ [ "Identity", "Illumina PE Library", "Illumina PE Library Seq" ] ],
+        "geo_tissue_origin" : [ [ "nn" ] ],
+        "geo_tissue_type" : [ [ "n" ] ]
       },
       "sequencerRunName" : [ "120912_h804_0094_BD181GACXX" ],
       "sequencerRunAttributes" : {
-        "sequencerrun.geo_instrument_run_id" : [ [ "1130" ] ]
+        "geo_instrument_run_id" : [ [ "1130" ] ]
       },
       "laneName" : [ "120912_h804_0094_BD181GACXX_lane_8" ],
       "laneAttributes" : {
-        "lane.geo_lane" : [ [ "8" ] ]
+        "geo_lane" : [ [ "8" ] ]
       },
       "iusTag" : [ "NoIndex" ],
       "iusAttributes" : { },
@@ -595,27 +640,30 @@
     }, {
       "studyTitle" : [ "SingleCellSeq" ],
       "studyAttributes" : {
-        "study.geo_lab_group_id" : [ [ "138" ] ]
+        "geo_lab_group_id" : [ [ "138" ] ]
       },
-      "experimentName" : [ "Geo_SingleCellSeq_ILLUMINA_WG_{F*101}{..}{R*101}" ],
+      "experimentName" : [ ],
       "experimentAttributes" : { },
       "sampleName" : [ "SCS_0008_nn_n_PE_300_WG" ],
       "sampleAttributes" : {
-        "sample.geo_library_source_template_type" : [ [ "WG" ] ],
-        "sample.geo_reaction_id" : [ [ "7135", "7495", "7496" ] ],
-        "sample.geo_run_id_and_position_and_slot" : [ [ "1070_7_1", "1130_7_2", "1130_8_2" ] ],
-        "sample.geo_template_id" : [ [ "21562" ] ],
-        "sample.geo_template_type" : [ [ "Illumina PE Library Seq" ] ],
-        "sample.geo_tissue_origin" : [ [ "nn" ] ],
-        "sample.geo_tissue_type" : [ [ "n" ] ]
+        "geo_external_name" : [ [ "G2.5" ] ],
+        "geo_library_source_template_type" : [ [ "WG" ] ],
+        "geo_organism" : [ [ "Homo sapiens" ] ],
+        "geo_prep_kit" : [ [ "GA_multiplex" ] ],
+        "geo_reaction_id" : [ [ "7135", "7495", "7496" ] ],
+        "geo_run_id_and_position_and_slot" : [ [ "1070_7_1", "1130_7_2", "1130_8_2" ] ],
+        "geo_template_id" : [ [ "21541", "21561", "21562" ] ],
+        "geo_template_type" : [ [ "Identity", "Illumina PE Library", "Illumina PE Library Seq" ] ],
+        "geo_tissue_origin" : [ [ "nn" ] ],
+        "geo_tissue_type" : [ [ "n" ] ]
       },
       "sequencerRunName" : [ "120912_h804_0094_BD181GACXX" ],
       "sequencerRunAttributes" : {
-        "sequencerrun.geo_instrument_run_id" : [ [ "1130" ] ]
+        "geo_instrument_run_id" : [ [ "1130" ] ]
       },
       "laneName" : [ "120912_h804_0094_BD181GACXX_lane_8" ],
       "laneAttributes" : {
-        "lane.geo_lane" : [ [ "8" ] ]
+        "geo_lane" : [ [ "8" ] ]
       },
       "iusTag" : [ "NoIndex" ],
       "iusAttributes" : { },
