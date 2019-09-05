@@ -1,0 +1,21 @@
+{
+  "defaults": {
+    "description": "FastQC workflow test",
+    "metrics_calculate": "calculate.sh",
+    "metrics_compare": "compare.sh",
+    "output_metrics_dir": "/.mounts/labs/PDE/data/RegressionTests/FastQC/workflow/development/output_expectation/"
+  },
+  "tests": [
+    {
+      "id": "workflow_test_01",
+      "parameters": {
+        "wdl_inputs": {
+          "fastQCWorkflow.fastqc": "java/1.8.0_91 fastqc/0.11.8",
+          "fastQCWorkflow.inputFastqs": ["/.mounts/labs/PDE/data/FastQC/adrenal_1.fastq.gz",
+                                         "/.mounts/labs/PDE/data/FastQC/adrenal_2.fastq.gz"],
+          "fastQCWorkflow.outputDIR": "."
+        }
+      }
+    }
+  ]
+}
