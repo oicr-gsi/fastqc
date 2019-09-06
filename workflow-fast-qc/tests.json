@@ -10,7 +10,7 @@
       "id": "workflow_test_01",
       "parameters": {
         "wdl_inputs": {
-          "fastQCWorkflow.fastqc": "java/1.8.0_91 fastqc/0.11.8",
+          "fastQCWorkflow.modules": "java/8 fastqc/0.11.8 perl/5.28",
           "fastQCWorkflow.inputFastqs": ["/.mounts/labs/PDE/data/FastQC/adrenal_1.fastq.gz",
                                          "/.mounts/labs/PDE/data/FastQC/adrenal_2.fastq.gz"],
           "fastQCWorkflow.outputDIR": "."

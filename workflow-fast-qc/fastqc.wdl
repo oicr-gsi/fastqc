@@ -6,7 +6,7 @@ version 1.0
 workflow fastQCWorkflow {
 input {
 	String outputDIR
-        String? modules = "perl/5.28 java/1.8.0_91 fastqc/0.11.8"
+        String? modules = "perl/5.28 java/8 fastqc/0.11.8"
         Array[File] inputFastqs
 }
 
@@ -31,19 +31,18 @@ input {
         Int?   jobMemory = 6
 	String outputDIR
         File   inputFastq
-        String? modules = "perl/5.28 java/1.8.0_91 fastqc/0.11.8"
+        String? modules = "perl/5.28 java/8 fastqc/0.11.8"
 }
 
 command <<<
  set -euo pipefail
- module load ~{modules}
  FASTQC=$(which fastqc)
  JAVA=$(which java)
  perl $FASTQC ~{inputFastq} --java=$JAVA --noextract --outdir "~{outputDIR}"
 >>>
 
 runtime {
-  memory: "~{jobMemory} GB"
+  memory:  "~{jobMemory} GB"
   modules: "~{modules}"
 }
 
