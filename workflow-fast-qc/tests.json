@@ -3,7 +3,7 @@
     "description": "FastQC workflow test",
     "metrics_calculate": "calculate.sh",
     "metrics_compare": "compare.sh",
-    "output_metrics_dir": "/.mounts/labs/PDE/data/RegressionTests/FastQC/workflow/output_expectation/${version}"
+    "output_metrics_dir": "/.mounts/labs/PDE/data/RegressionTests/FastQC/workflow/output_expectation/${project.version}"
   },
   "tests": [
     {
