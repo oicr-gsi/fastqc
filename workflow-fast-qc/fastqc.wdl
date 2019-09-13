@@ -5,14 +5,13 @@ version 1.0
 # ======================================================
 workflow fastQCWorkflow {
 input {
-	String outputDIR
         String? modules = "perl/5.28 java/8 fastqc/0.11.8"
         Array[File] inputFastqs
 }
 
 
-call runFastQC as FastQC_R1 { input: outputDIR = outputDIR, inputFastq = inputFastqs[0], modules = modules }
-call runFastQC as FastQC_R2 { input: outputDIR = outputDIR, inputFastq = inputFastqs[1], modules = modules }
+call runFastQC as FastQC_R1 { input: outputDIR = ".", inputFastq = inputFastqs[0], modules = modules }
+call runFastQC as FastQC_R2 { input: outputDIR = ".", inputFastq = inputFastqs[1], modules = modules }
 
 output {
   File html_report_file_R1 = FastQC_R1.html_report_file
@@ -29,7 +28,6 @@ output {
 task runFastQC {
 input {
         Int?   jobMemory = 6
-	String outputDIR
         File   inputFastq
         String? modules = "perl/5.28 java/8 fastqc/0.11.8"
 }
@@ -38,7 +36,7 @@ command <<<
  set -euo pipefail
  FASTQC=$(which fastqc)
  JAVA=$(which java)
- perl $FASTQC ~{inputFastq} --java=$JAVA --noextract --outdir "~{outputDIR}"
+ perl $FASTQC ~{inputFastq} --java=$JAVA --noextract --outdir "."
 >>>
 
 runtime {
@@ -47,8 +45,8 @@ runtime {
 }
 
 output {
-  File html_report_file = "${outputDIR}/~{basename(inputFastq, '.fastq.gz')}_fastqc.html"
-  File zip_bundle_file  = "${outputDIR}/~{basename(inputFastq, '.fastq.gz')}_fastqc.zip"
+  File html_report_file = "~{basename(inputFastq, '.fastq.gz')}_fastqc.html"
+  File zip_bundle_file  = "~{basename(inputFastq, '.fastq.gz')}_fastqc.zip"
 }
 }
 
