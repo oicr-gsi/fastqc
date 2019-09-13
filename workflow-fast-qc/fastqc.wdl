@@ -10,8 +10,8 @@ input {
 }
 
 
-call runFastQC as FastQC_R1 { input: outputDIR = ".", inputFastq = inputFastqs[0], modules = modules }
-call runFastQC as FastQC_R2 { input: outputDIR = ".", inputFastq = inputFastqs[1], modules = modules }
+call runFastQC as FastQC_R1 { input: inputFastq = inputFastqs[0], modules = modules }
+call runFastQC as FastQC_R2 { input: inputFastq = inputFastqs[1], modules = modules }
 
 output {
   File html_report_file_R1 = FastQC_R1.html_report_file
