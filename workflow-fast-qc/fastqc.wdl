@@ -3,7 +3,7 @@ version 1.0
 # ======================================================
 # Workflow accepts two fastq files, with R1 and R2 reads
 # ======================================================
-workflow fastQCWorkflow {
+workflow fastQC {
 input {
         String? modules = "perl/5.28 java/8 fastqc/0.11.8"
         Array[File] inputFastqs
