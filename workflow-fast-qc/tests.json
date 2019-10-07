@@ -17,7 +17,7 @@
       "parameters": {
         "wdl_inputs": {
           "fastQC.inputFastqs": ["/.mounts/labs/PDE/data/FastQC/adrenal_1.fastq.gz",
-                                         "/.mounts/labs/PDE/data/FastQC/adrenal_2.fastq.gz"]
+                                 "/.mounts/labs/PDE/data/FastQC/adrenal_2.fastq.gz"]
         }
       }
     },

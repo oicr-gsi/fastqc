@@ -8,12 +8,10 @@ input {
         Array[File]+ inputFastqs
 }
 
-scatter (f in inputFastqs) {
- call runFastQC { input: inputFastq = f }
+call runFastQC as firstMateFastQC { input: inputFastq = inputFastqs[0] }
+if (length(inputFastqs) > 1) {
+ call runFastQC as secondMateFastQC { input: inputFastq = inputFastqs[1] }
 }
-
-Array[File] outputReports = select_all(runFastQC.html_report_file)
-Array[File] outputZips    = select_all(runFastQC.zip_bundle_file)
 
 meta {
     author: "Peter Ruzanov"
@@ -22,10 +20,10 @@ meta {
 }
 
 output {
- File html_report_R1  = outputReports[0]
- File zip_bundle_R1   = outputZips[0]
- File? html_report_R2 = if length(outputReports) > 1 then outputReports[1] else ""
- File? zip_bundle_R2  = if length(outputZips) > 1 then outputZips[1] else ""
+ File? html_report_R1  = firstMateFastQC.html_report_file
+ File? zip_bundle_R1   = firstMateFastQC.zip_bundle_file
+ File? html_report_R2 = secondMateFastQC.html_report_file
+ File? zip_bundle_R2  = secondMateFastQC.zip_bundle_file
 }
 
 }
