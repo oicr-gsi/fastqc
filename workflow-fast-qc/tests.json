@@ -16,9 +16,16 @@
       "id": "workflow_test_01",
       "parameters": {
         "wdl_inputs": {
-          "fastQC.modules": "java/8 fastqc/0.11.8 perl/5.28",
           "fastQC.inputFastqs": ["/.mounts/labs/PDE/data/FastQC/adrenal_1.fastq.gz",
                                          "/.mounts/labs/PDE/data/FastQC/adrenal_2.fastq.gz"]
+        }
+      }
+    },
+    {
+      "id": "workflow_test_02",
+      "parameters": {
+        "wdl_inputs": {
+          "fastQC.inputFastqs": ["/.mounts/labs/PDE/data/FastQC/adrenal_1.fastq.gz"]
         }
       }
     }
