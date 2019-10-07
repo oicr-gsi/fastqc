@@ -6,18 +6,11 @@ version 1.0
 workflow fastQC {
 input {
         String? modules = "perl/5.28 java/8 fastqc/0.11.8"
-        Array[File] inputFastqs
+        Array[File]+ inputFastqs
 }
 
-
-call runFastQC as FastQC_R1 { input: inputFastq = inputFastqs[0], modules = modules }
-call runFastQC as FastQC_R2 { input: inputFastq = inputFastqs[1], modules = modules }
-
-output {
-  File html_report_file_R1 = FastQC_R1.html_report_file
-  File zip_bundle_file_R1  = FastQC_R1.zip_bundle_file
-  File html_report_file_R2 = FastQC_R2.html_report_file
-  File zip_bundle_file_R2  = FastQC_R2.zip_bundle_file
+scatter (f in inputFastqs) {
+ call runFastQC { input: inputFastq = f, modules = modules }
 }
 
 }
