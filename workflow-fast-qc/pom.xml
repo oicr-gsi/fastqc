@@ -10,7 +10,7 @@
         <relativePath/>
     </parent>
 
-    <artifactId>workflow-fast-qc</artifactId>
+    <artifactId>FastQC</artifactId>
     <version>3.0</version>
     <packaging>jar</packaging>
 
