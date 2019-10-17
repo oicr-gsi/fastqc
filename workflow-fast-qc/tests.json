@@ -16,8 +16,8 @@
       "id": "workflow_test_01",
       "parameters": {
         "wdl_inputs": {
-          "fastQC.inputFastqs": ["/.mounts/labs/gsi/testdata/fastQC/input_data/adrenal_1.fastq.gz",
-                                 "/.mounts/labs/gsi/testdata/fastQC/input_data/adrenal_2.fastq.gz"]
+          "fastQC.fastqR1": "/.mounts/labs/gsi/testdata/fastQC/input_data/adrenal_1.fastq.gz",
+          "fastQC.fastqR2": "/.mounts/labs/gsi/testdata/fastQC/input_data/adrenal_2.fastq.gz"
         }
       }
     },
@@ -25,7 +25,17 @@
       "id": "workflow_test_02",
       "parameters": {
         "wdl_inputs": {
-          "fastQC.inputFastqs": ["/.mounts/labs/gsi/testdata/fastQC/input_data/adrenal_1.fastq.gz"]
+          "fastQC.fastqR1": "/.mounts/labs/gsi/testdata/fastQC/input_data/adrenal_1.fastq.gz"
+        }
+      }
+    },
+     {
+      "id": "workflow_test_03",
+      "parameters": {
+        "wdl_inputs": {
+          "fastQC.fastqR1": "/.mounts/labs/gsi/testdata/fastQC/input_data/adrenal_1.fastq.gz",
+          "fastQC.fastqR2": "/.mounts/labs/gsi/testdata/fastQC/input_data/adrenal_2.fastq.gz",
+          "fastQC.outputFileNamePrefix": "CUSTOM_PREFIX"
         }
       }
     }
