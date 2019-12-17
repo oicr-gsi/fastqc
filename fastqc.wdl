@@ -15,14 +15,14 @@ Array[File] inputFastqs = select_all([fastqR1,fastqR2])
 String outputPrefixOne = if outputFileNamePrefix == "" then basename(inputFastqs[0], '.fastq.gz') + "_fastqc"
                                                        else outputFileNamePrefix + r1Suffix
 
-call runFastQC as firstMateFastQC { input: inputFastq = inputFastqs[0], outputPrefix = outputPrefixOne }
+call runFastQC as firstMateFastQC { input: inputFastq = inputFastqs[0] }
 call renameOutput as firstMateHtml { input: inputFile = firstMateFastQC.html_report_file, extension = "html", customPrefix = outputPrefixOne }
 call renameOutput as firstMateZip { input: inputFile = firstMateFastQC.zip_bundle_file, extension = "zip", customPrefix = outputPrefixOne }
 
 if (length(inputFastqs) > 1) {
  String outputPrefixTwo = if outputFileNamePrefix=="" then basename(inputFastqs[1], '.fastq.gz') + "_fastqc"
                                                       else outputFileNamePrefix + r2Suffix
- call runFastQC as secondMateFastQC { input: inputFastq = inputFastqs[1],  outputPrefix = outputPrefixTwo }
+ call runFastQC as secondMateFastQC { input: inputFastq = inputFastqs[1] }
  call renameOutput as secondMateHtml { input: inputFile = secondMateFastQC.html_report_file, extension = "html", customPrefix = outputPrefixTwo }
  call renameOutput as secondMateZip { input: inputFile = secondMateFastQC.zip_bundle_file, extension = "zip", customPrefix = outputPrefixTwo }
 }
@@ -50,9 +50,9 @@ output {
 task runFastQC {
 input {
         Int?   jobMemory = 6
+        Int    timeout   = 20
         File   inputFastq
         String? modules = "perl/5.28 java/8 fastqc/0.11.8"
-        String? outputPrefix
 }
 
 command <<<
@@ -66,11 +66,13 @@ parameter_meta {
  jobMemory: "Memory allocated to fastqc"
  inputFastq: "Input fastq file, gzipped"
  modules: "Names and versions of required modules"
+ timeout: "Timeout in hours, needed to override imposed limits"
 }
 
 runtime {
   memory:  "~{jobMemory} GB"
   modules: "~{modules}"
+  timeout: "~{timeout}"
 }
 
 output {
