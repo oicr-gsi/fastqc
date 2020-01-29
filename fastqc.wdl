@@ -86,6 +86,7 @@ output {
 # =================================================
 task renameOutput {
 input {
+  Int? jobMemory = 2
   File inputFile
   String extension
   String customPrefix
@@ -95,6 +96,7 @@ parameter_meta {
  inputFile: "Input file, html or zip"
  extension: "Extension for a file (without leading dot)"
  customPrefix: "Prefix for making a file"
+ jobMemory: "Memory allocated to this task"
 }
 
 command <<<
@@ -105,6 +107,11 @@ command <<<
    ln -s ~{inputFile}
  fi
 >>>
+
+runtime {
+  memory:  "~{jobMemory} GB"
+}
+
 
 output {
   File? renamedOutput = "~{customPrefix}.~{extension}"
