@@ -27,12 +27,24 @@ if (length(inputFastqs) > 1) {
  call renameOutput as secondMateZip { input: inputFile = secondMateFastQC.zip_bundle_file, extension = "zip", customPrefix = outputPrefixTwo }
 }
 
-
-
 meta {
     author: "Peter Ruzanov"
     email: "peter.ruzanov@oicr.on.ca"
-    description: "FastQC 3.0"
+    description: "FastQC 3.1"
+    dependencies: [
+      {
+        name: "fastqc/0.11.8",
+        url: "https://www.bioinformatics.babraham.ac.uk/projects/fastqc/"
+      }
+    ]
+    output_meta: {
+      html_report_R1: "HTML report for the first mate fastq file",
+      zip_bundle_R1: "zipped report from FastQC for the first mate reads",
+      html_report_R2: "HTML report for read second mate fastq file",
+      zip_bundle_R2: "zipped report from FastQC for the second mate reads",
+      resultZip: "All results from sequenza runs using gamma sweep",
+      resultJson: "Combined json file with ploidy and contamination data"
+    }
 }
 
 output {
@@ -49,7 +61,7 @@ output {
 # ===================================
 task runFastQC {
 input {
-        Int?   jobMemory = 6
+        Int    jobMemory = 6
         Int    timeout   = 20
         File   inputFastq
         String? modules = "perl/5.28 java/8 fastqc/0.11.8"
@@ -86,10 +98,11 @@ output {
 # =================================================
 task renameOutput {
 input {
-  Int? jobMemory = 2
+  Int  jobMemory = 2
   File inputFile
   String extension
   String customPrefix
+  Int timeout    = 1
 }
 
 parameter_meta {
@@ -97,6 +110,7 @@ parameter_meta {
  extension: "Extension for a file (without leading dot)"
  customPrefix: "Prefix for making a file"
  jobMemory: "Memory allocated to this task"
+ timeout: "Timeout, in hours, needed to override imposed limits"
 }
 
 command <<<
@@ -110,6 +124,7 @@ command <<<
 
 runtime {
   memory:  "~{jobMemory} GB"
+  timeout: "~{timeout}"
 }
 
 
