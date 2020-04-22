@@ -1,35 +1,67 @@
-# fastqc
+# fastQC
 
 Niassa-wrapped Cromwell (widdle) workflow for running FastQC tools on paired or unpaired reads.
 
 ![fastq flowchart](docs/fastqc-wf.png)
+## Overview
 
-## Running FastQC workflow
+## Dependencies
 
-fastqc is a simple workflow that wraps FastQC tool. The expected inputs for this workflow - one or two compressed fastq files, depending on the protocol used (paired or unpaired reads).i The workflow produces an archive in .zip format which contains reports and metric files. Also, an html report is provisioned for each of the inputs.
+* [fastqc 0.11.8](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
-### Parameters (Inputs) of the workflow
 
-- fastqR1               input file with the first mate reads (required)
-- fastqR2               input file with the second mate reads (optonal, if not set the experiments will be regarded as single-end)
-- outputFileNamePrefix  output prefix, customizable. Default is the first file's basename
-- r1Suffix              suffix for R1 file, default is \_R1
-- r2Suffix              suffix for R2 file, default is \_R2
-- jobMemory             memory, in GB
-- modules               modules to use with fastqc processes
-- timeout               timeout, in hours. Use when dealing with extra large inputs, default is 20h
+## Usage
 
-### Provisioned outputs
-Each fastqc run produces two types of outputs - an html report and a compressed archive with workflow's outputs.
+### Cromwell
+```
+java -jar cromwell.jar run fastqc.wdl --inputs inputs.json
+```
+
+### Inputs
+
+#### Required workflow parameters:
+Parameter|Value|Description
+---|---|---
+`fastqR1`|File|Input file with the first mate reads.
+
+
+#### Optional workflow parameters:
+Parameter|Value|Default|Description
+---|---|---|---
+`fastqR2`|File?|None| Input file with the second mate reads (if not set the experiments will be regarded as single-end).
+`outputFileNamePrefix`|String|""|Output prefix, customizable. Default is the first file's basename.
+`r1Suffix`|String|"_R1"|Suffix for R1 file.
+`r2Suffix`|String|"_R2"|Suffix for R2 file.
+
+
+#### Optional task parameters:
+Parameter|Value|Default|Description
+---|---|---|---
+`firstMateFastQC.jobMemory`|Int|6|Memory allocated to fastqc.
+`firstMateFastQC.timeout`|Int|20|Timeout in hours, needed to override imposed limits.
+`firstMateFastQC.modules`|String|"perl/5.28 java/8 fastqc/0.11.8"|Names and versions of required modules.
+`firstMateHtml.jobMemory`|Int|2|Memory allocated to this task.
+`firstMateHtml.timeout`|Int|1|Timeout, in hours, needed to override imposed limits.
+`firstMateZip.jobMemory`|Int|2|Memory allocated to this task.
+`firstMateZip.timeout`|Int|1|Timeout, in hours, needed to override imposed limits.
+`secondMateFastQC.jobMemory`|Int|6|Memory allocated to fastqc.
+`secondMateFastQC.timeout`|Int|20|Timeout in hours, needed to override imposed limits.
+`secondMateFastQC.modules`|String|"perl/5.28 java/8 fastqc/0.11.8"|Names and versions of required modules.
+`secondMateHtml.jobMemory`|Int|2|Memory allocated to this task.
+`secondMateHtml.timeout`|Int|1|Timeout, in hours, needed to override imposed limits.
+`secondMateZip.jobMemory`|Int|2|Memory allocated to this task.
+`secondMateZip.timeout`|Int|1|Timeout, in hours, needed to override imposed limits.
+
+
+### Outputs
 
 Output | Type | Description
 ---|---|---
-`resultZip`|File|All results from sequenza runs using gamma sweep.
-`resultJson`|File|Combined json file with ploidy and contamination data.
-`html_report_R1`|File?|First mate html report
-`zip_bundle_R1`|File?|First mate archived report and data
-`html_report_R2`|File?|Second mate html report
-`zip_bundle_R2`|File?|Second mate archived report and data
+`html_report_R1`|File?|HTML report for the first mate fastq file.
+`zip_bundle_R1`|File?|zipped report from FastQC for the first mate reads.
+`html_report_R2`|File?|HTML report for read second mate fastq file.
+`zip_bundle_R2`|File?|zipped report from FastQC for the second mate reads.
+
 
 ## Niassa + Cromwell
 
@@ -57,5 +89,6 @@ mvn clean verify \
 
 ## Support
 
-For support, please file an issue on the [Github project](https://github.com/oicr-gsi) or send an email to gsi@oicr.on.ca.
+For support, please file an issue on the [Github project](https://github.com/oicr-gsi) or send an email to gsi@oicr.on.ca .
 
+_Generated with wdl_doc_gen (https://github.com/oicr-gsi/wdl_doc_gen/)_
