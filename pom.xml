@@ -10,7 +10,7 @@
         <relativePath/>
     </parent>
 
-    <artifactId>FastQC</artifactId>
+    <artifactId>fastQC</artifactId>
     <version>3.1.2</version>
     <packaging>jar</packaging>
 
