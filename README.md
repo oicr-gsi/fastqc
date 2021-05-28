@@ -2,7 +2,6 @@
 
 Niassa-wrapped Cromwell (widdle) workflow for running FastQC tools on paired or unpaired reads.
 
-![fastq flowchart](docs/fastqc-wf.png)
 ## Overview
 
 ## Dependencies
@@ -57,8 +56,8 @@ Parameter|Value|Default|Description
 
 Output | Type | Description
 ---|---|---
-`html_report_R1`|File?|HTML report for the first mate fastq file.
-`zip_bundle_R1`|File?|zipped report from FastQC for the first mate reads.
+`html_report_R1`|File|HTML report for the first mate fastq file.
+`zip_bundle_R1`|File|zipped report from FastQC for the first mate reads.
 `html_report_R2`|File?|HTML report for read second mate fastq file.
 `zip_bundle_R2`|File?|zipped report from FastQC for the second mate reads.
 
@@ -107,4 +106,4 @@ perl $FASTQC INPUT_FASTQ --java=$JAVA --noextract --outdir "."
 
 For support, please file an issue on the [Github project](https://github.com/oicr-gsi) or send an email to gsi@oicr.on.ca .
 
-_Generated with wdl_doc_gen (https://github.com/oicr-gsi/wdl_doc_gen/)_
+_Generated with generate-markdown-readme (https://github.com/oicr-gsi/gsi-wdl-tools/)_

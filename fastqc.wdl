@@ -54,8 +54,8 @@ meta {
 }
 
 output {
- File? html_report_R1  = firstMateHtml.renamedOutput
- File? zip_bundle_R1   = firstMateZip.renamedOutput
+ File html_report_R1  = firstMateHtml.renamedOutput
+ File zip_bundle_R1   = firstMateZip.renamedOutput
  File? html_report_R2 = secondMateHtml.renamedOutput
  File? zip_bundle_R2  = secondMateZip.renamedOutput
 }
@@ -135,6 +135,6 @@ runtime {
 
 
 output {
-  File? renamedOutput = "~{customPrefix}.~{extension}"
+  File renamedOutput = "~{customPrefix}.~{extension}"
 }
 }
