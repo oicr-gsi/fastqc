@@ -86,6 +86,22 @@ mvn clean verify \
 -Dcromwell-host=http://cromwell-url:8000
 ```
 
+## Commands
+
+This section lists command(s) run by fastqc workflow
+
+* Running fastqc
+
+fastqc workflow runs the following command (excerpt from .wdl file). INPUT_FASTQ is a placeholder for an input file.
+
+```
+set -euo pipefail
+FASTQC=$(which fastqc)
+JAVA=$(which java)
+perl $FASTQC INPUT_FASTQ --java=$JAVA --noextract --outdir "."
+
+```
+
 ## Support
 
 For support, please file an issue on the [Github project](https://github.com/oicr-gsi) or send an email to gsi@oicr.on.ca .
