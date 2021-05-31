@@ -1,3 +1,5 @@
+## 3.1.2 2021-05-31
+[GP-2733](https://jira.oicr.on.ca/browse/GP-2733) - migrate to Vidarr
 ## 3.1.2 2021-05-26
 [GP-2726](https://jira.oicr.on.ca/browse/GP-2726) - remove optional output for read 1
 ## 3.1.1 2020-01-29

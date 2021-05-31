@@ -1,0 +1,6 @@
+{
+    "names": [
+        "fastqc"
+    ],
+    "wdl": "fastqc.wdl"
+}

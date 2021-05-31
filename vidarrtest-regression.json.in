@@ -1,0 +1,261 @@
+[
+    {
+        "arguments": {
+            "fastQC.fastqR1": {
+                "contents": {
+                    "configuration": "/.mounts/labs/gsi/testdata/fastQC/input_data/adrenal_1.fastq.gz",
+                    "externalIds": [
+                        {
+                            "id": "TEST",
+                            "provider": "TEST"
+                        }
+                    ]
+                },
+                "type": "EXTERNAL"
+            },
+            "fastQC.fastqR2": {
+                "contents": {
+                    "configuration": "/.mounts/labs/gsi/testdata/fastQC/input_data/adrenal_2.fastq.gz",
+                    "externalIds": [
+                        {
+                            "id": "TEST",
+                            "provider": "TEST"
+                        }
+                    ]
+                },
+                "type": "EXTERNAL"
+            },
+            "fastQC.firstMateFastQC.jobMemory": null,
+            "fastQC.firstMateFastQC.modules": null,
+            "fastQC.firstMateFastQC.timeout": null,
+            "fastQC.firstMateHtml.jobMemory": null,
+            "fastQC.firstMateHtml.timeout": null,
+            "fastQC.firstMateZip.jobMemory": null,
+            "fastQC.firstMateZip.timeout": null,
+            "fastQC.outputFileNamePrefix": null,
+            "fastQC.r1Suffix": null,
+            "fastQC.r2Suffix": null,
+            "fastQC.secondMateFastQC.jobMemory": null,
+            "fastQC.secondMateFastQC.modules": null,
+            "fastQC.secondMateFastQC.timeout": null,
+            "fastQC.secondMateHtml.jobMemory": null,
+            "fastQC.secondMateHtml.timeout": null,
+            "fastQC.secondMateZip.jobMemory": null,
+            "fastQC.secondMateZip.timeout": null
+        },
+        "description": "FastQC workflow test",
+        "engineArguments": {},
+        "id": "workflow_test_01",
+        "metadata": {
+            "fastQC.html_report_R1": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_fastQC_workflow_test_01_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "fastQC.html_report_R2": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_fastQC_workflow_test_01_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "fastQC.zip_bundle_R1": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_fastQC_workflow_test_01_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "fastQC.zip_bundle_R2": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_fastQC_workflow_test_01_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/./calculate.sh",
+                "metrics_compare": "@CHECKOUT@/./compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/fastQC/output_metrics/workflow_test_01.metrics",
+                "type": "script"
+            }
+        ]
+    },
+    {
+        "arguments": {
+            "fastQC.fastqR1": {
+                "contents": {
+                    "configuration": "/.mounts/labs/gsi/testdata/fastQC/input_data/adrenal_1.fastq.gz",
+                    "externalIds": [
+                        {
+                            "id": "TEST",
+                            "provider": "TEST"
+                        }
+                    ]
+                },
+                "type": "EXTERNAL"
+            },
+            "fastQC.fastqR2": null,
+            "fastQC.firstMateFastQC.jobMemory": null,
+            "fastQC.firstMateFastQC.modules": null,
+            "fastQC.firstMateFastQC.timeout": null,
+            "fastQC.firstMateHtml.jobMemory": null,
+            "fastQC.firstMateHtml.timeout": null,
+            "fastQC.firstMateZip.jobMemory": null,
+            "fastQC.firstMateZip.timeout": null,
+            "fastQC.outputFileNamePrefix": null,
+            "fastQC.r1Suffix": null,
+            "fastQC.r2Suffix": null,
+            "fastQC.secondMateFastQC.jobMemory": null,
+            "fastQC.secondMateFastQC.modules": null,
+            "fastQC.secondMateFastQC.timeout": null,
+            "fastQC.secondMateHtml.jobMemory": null,
+            "fastQC.secondMateHtml.timeout": null,
+            "fastQC.secondMateZip.jobMemory": null,
+            "fastQC.secondMateZip.timeout": null
+        },
+        "description": "FastQC workflow test",
+        "engineArguments": {},
+        "id": "workflow_test_02",
+        "metadata": {
+            "fastQC.html_report_R1": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_fastQC_workflow_test_02_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "fastQC.html_report_R2": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_fastQC_workflow_test_02_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "fastQC.zip_bundle_R1": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_fastQC_workflow_test_02_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "fastQC.zip_bundle_R2": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_fastQC_workflow_test_02_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/./calculate.sh",
+                "metrics_compare": "@CHECKOUT@/./compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/fastQC/output_metrics/workflow_test_02.metrics",
+                "type": "script"
+            }
+        ]
+    },
+    {
+        "arguments": {
+            "fastQC.fastqR1": {
+                "contents": {
+                    "configuration": "/.mounts/labs/gsi/testdata/fastQC/input_data/adrenal_1.fastq.gz",
+                    "externalIds": [
+                        {
+                            "id": "TEST",
+                            "provider": "TEST"
+                        }
+                    ]
+                },
+                "type": "EXTERNAL"
+            },
+            "fastQC.fastqR2": {
+                "contents": {
+                    "configuration": "/.mounts/labs/gsi/testdata/fastQC/input_data/adrenal_2.fastq.gz",
+                    "externalIds": [
+                        {
+                            "id": "TEST",
+                            "provider": "TEST"
+                        }
+                    ]
+                },
+                "type": "EXTERNAL"
+            },
+            "fastQC.firstMateFastQC.jobMemory": null,
+            "fastQC.firstMateFastQC.modules": null,
+            "fastQC.firstMateFastQC.timeout": null,
+            "fastQC.firstMateHtml.jobMemory": null,
+            "fastQC.firstMateHtml.timeout": null,
+            "fastQC.firstMateZip.jobMemory": null,
+            "fastQC.firstMateZip.timeout": null,
+            "fastQC.outputFileNamePrefix": "CUSTOM_PREFIX",
+            "fastQC.r1Suffix": null,
+            "fastQC.r2Suffix": null,
+            "fastQC.secondMateFastQC.jobMemory": null,
+            "fastQC.secondMateFastQC.modules": null,
+            "fastQC.secondMateFastQC.timeout": null,
+            "fastQC.secondMateHtml.jobMemory": null,
+            "fastQC.secondMateHtml.timeout": null,
+            "fastQC.secondMateZip.jobMemory": null,
+            "fastQC.secondMateZip.timeout": null
+        },
+        "description": "FastQC workflow test",
+        "engineArguments": {},
+        "id": "workflow_test_03",
+        "metadata": {
+            "fastQC.html_report_R1": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_fastQC_workflow_test_03_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "fastQC.html_report_R2": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_fastQC_workflow_test_03_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "fastQC.zip_bundle_R1": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_fastQC_workflow_test_03_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "fastQC.zip_bundle_R2": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_fastQC_workflow_test_03_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/./calculate.sh",
+                "metrics_compare": "@CHECKOUT@/./compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/fastQC/output_metrics/workflow_test_03.metrics",
+                "type": "script"
+            }
+        ]
+    }
+]
