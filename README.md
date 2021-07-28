@@ -96,7 +96,7 @@ This section lists command(s) run by fastqc workflow
 fastqc workflow runs the following command (excerpt from .wdl file). INPUT_FASTQ is a placeholder for an input file.
 
 ```
-set -euo pipefail
+
 FASTQC=$(which fastqc)
 JAVA=$(which java)
 perl $FASTQC INPUT_FASTQ --java=$JAVA --noextract --outdir "."
