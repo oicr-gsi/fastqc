@@ -7,7 +7,7 @@ Niassa-wrapped Cromwell (widdle) workflow for running FastQC tools on paired or 
 
 ## Dependencies
 
-* [fastqc 0.11.8](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+* [fastqc 0.11.9](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
 
 ## Usage
@@ -39,6 +39,8 @@ Parameter|Value|Default|Description
 ---|---|---|---
 `firstMateFastQC.jobMemory`|Int|6|Memory allocated to fastqc.
 `firstMateFastQC.timeout`|Int|20|Timeout in hours, needed to override imposed limits.
+`firstMateFastQC.javaHeap`|Int|4|Memory allocated to java heap, in G.
+`firstMateFastQC.threads`|Int?|None|Threads param for fastqc
 `firstMateFastQC.modules`|String|"perl/5.28 java/8 fastqc/0.11.8"|Names and versions of required modules.
 `firstMateHtml.jobMemory`|Int|2|Memory allocated to this task.
 `firstMateHtml.timeout`|Int|1|Timeout, in hours, needed to override imposed limits.
@@ -46,6 +48,8 @@ Parameter|Value|Default|Description
 `firstMateZip.timeout`|Int|1|Timeout, in hours, needed to override imposed limits.
 `secondMateFastQC.jobMemory`|Int|6|Memory allocated to fastqc.
 `secondMateFastQC.timeout`|Int|20|Timeout in hours, needed to override imposed limits.
+`secondMateFastQC.javaHeap`|Int|4|Memory allocated to java heap, in G.
+`secondMateFastQC.threads`|Int?|None|Threads param for fastqc
 `secondMateFastQC.modules`|String|"perl/5.28 java/8 fastqc/0.11.8"|Names and versions of required modules.
 `secondMateHtml.jobMemory`|Int|2|Memory allocated to this task.
 `secondMateHtml.timeout`|Int|1|Timeout, in hours, needed to override imposed limits.
@@ -63,48 +67,24 @@ Output | Type | Description
 `zip_bundle_R2`|File?|zipped report from FastQC for the second mate reads.
 
 
-## Niassa + Cromwell
-
-This WDL workflow is wrapped in a Niassa workflow (https://github.com/oicr-gsi/pipedev/tree/master/pipedev-niassa-cromwell-workflow) so that it can used with the Niassa metadata tracking system (https://github.com/oicr-gsi/niassa).
-
-* Building
-```
-mvn clean install
-```
-
-* Testing
-```
-mvn clean verify \
--Djava_opts="-Xmx1g -XX:+UseG1GC -XX:+UseStringDeduplication" \
--DrunTestThreads=2 \
--DskipITs=false \
--DskipRunITs=false \
--DworkingDirectory=/path/to/tmp/ \
--DschedulingHost=niassa_oozie_host \
--DwebserviceUrl=http://niassa-url:8080 \
--DwebserviceUser=niassa_user \
--DwebservicePassword=niassa_user_password \
--Dcromwell-host=http://cromwell-url:8000
-```
-
 ## Commands
-
-This section lists command(s) run by fastqc workflow
-
-* Running fastqc
-
-fastqc workflow runs the following command (excerpt from .wdl file). INPUT_FASTQ is a placeholder for an input file.
-
-```
-
-FASTQC=$(which fastqc)
-JAVA=$(which java)
-perl $FASTQC INPUT_FASTQ --java=$JAVA --noextract --outdir "."
-
-```
-
-## Support
+ 
+ This section lists command(s) run by fastqc workflow
+ 
+ * Running fastqc
+ 
+ fastqc workflow runs the following command (excerpt from .wdl file). INPUT_FASTQ is a placeholder for an input file.
+ 
+ ```
+ 
+ FASTQC=$(which fastqc)
+ JAVA=$(which java)
+ perl $FASTQC INPUT_FASTQ --java=$JAVA --noextract --outdir "."
+ 
+ ```
+ 
+ ## Support
 
 For support, please file an issue on the [Github project](https://github.com/oicr-gsi) or send an email to gsi@oicr.on.ca .
 
-_Generated with wdl_doc_gen (https://github.com/oicr-gsi/wdl_doc_gen/)_
+_Generated with generate-markdown-readme (https://github.com/oicr-gsi/gsi-wdl-tools/)_

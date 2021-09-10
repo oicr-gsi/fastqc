@@ -41,7 +41,7 @@ meta {
     description: "Niassa-wrapped Cromwell (widdle) workflow for running FastQC tools on paired or unpaired reads."
     dependencies: [
       {
-        name: "fastqc/0.11.8",
+        name: "fastqc/0.11.9",
         url: "https://www.bioinformatics.babraham.ac.uk/projects/fastqc/"
       }
     ]
@@ -69,19 +69,24 @@ task runFastQC {
 input {
         Int    jobMemory = 6
         Int    timeout   = 20
+        Int    javaHeap  = 4
+        Int?   threads
         File   inputFastq
-        String modules = "perl/5.28 java/8 fastqc/0.11.8"
+        String modules = "perl/5.28 java/11 fastqc/0.11.9"
 }
 
 command <<<
  set -euo pipefail
  FASTQC=$(which fastqc)
  JAVA=$(which java)
- perl $FASTQC ~{inputFastq} --java=$JAVA --noextract --outdir "."
+ export _JAVA_OPTIONS=-Xmx~{javaHeap}G
+ perl $FASTQC ~{inputFastq} --java=$JAVA ~{"-t" + threads}--noextract --outdir "."
 >>>
 
 parameter_meta {
  jobMemory: "Memory allocated to fastqc."
+ javaHeap: "Memory allocated to java heap, in G."
+ threads: "Threads param for fastqc"
  inputFastq: "Input fastq file, gzipped."
  modules: "Names and versions of required modules."
  timeout: "Timeout in hours, needed to override imposed limits."

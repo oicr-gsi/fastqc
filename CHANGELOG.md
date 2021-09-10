@@ -1,4 +1,6 @@
-## 3.1.1 1020-01-29
+## 3.2   2021-09-10
+[GC-8937](https://jira.oicr.on.ca/browse/GC-8937) - added additional parameters to control java heap memory better
+## 3.1.1 2020-01-29
 [GP-2259](https://jira.oicr.on.ca/browse/GP-2259) - adding memory setting to the last job (previously missing)
 ## 3.1 - 2020-01-12
 Just a version increment, to avoid collision with previous installation. Added docs
