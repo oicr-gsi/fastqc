@@ -1,3 +1,5 @@
+## 3.2.0 2021-09-10
+[GC-8937](https://jira.oicr.on.ca/browse/GC-8937) - add parameters to better control Java Heap Memory
 ## 3.1.2 2021-05-31
 [GP-2733](https://jira.oicr.on.ca/browse/GP-2733) - migrate to Vidarr
 ## 3.1.2 2021-05-26
