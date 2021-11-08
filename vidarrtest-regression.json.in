@@ -48,7 +48,10 @@
             "fastQC.secondMateZip.timeout": null
         },
         "description": "FastQC workflow test",
-        "engineArguments": {},
+        "engineArguments": {
+           "write_to_cache": false,
+           "read_from_cache": false
+        },
         "id": "workflow_test_01",
         "metadata": {
             "fastQC.html_report_R1": {
@@ -131,7 +134,10 @@
             "fastQC.secondMateZip.timeout": null
         },
         "description": "FastQC workflow test",
-        "engineArguments": {},
+        "engineArguments": {
+           "write_to_cache": false,
+           "read_from_cache": false
+        },
         "id": "workflow_test_02",
         "metadata": {
             "fastQC.html_report_R1": {
@@ -225,7 +231,10 @@
             "fastQC.secondMateZip.timeout": null
         },
         "description": "FastQC workflow test",
-        "engineArguments": {},
+        "engineArguments": {
+           "write_to_cache": false,
+           "read_from_cache": false
+        },
         "id": "workflow_test_03",
         "metadata": {
             "fastQC.html_report_R1": {
