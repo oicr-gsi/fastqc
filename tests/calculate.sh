@@ -17,6 +17,7 @@ find . -name "*.txt" | xargs md5sum | sort -V
 
 echo ".html files:"
 for f in *.html;do sed 's/<div id="header_filename">.*<br\/>.*.fastq.gz<\/div>//' $f | md5sum;done | sort -V
+for f in */*.html;do sed 's/<div id="header_filename">.*<br\/>.*.fastq.gz<\/div>//' $f | md5sum;done | sort -V
 
 echo ".fo files:"
 find . -name "*.fo" | xargs md5sum | sort -V 
