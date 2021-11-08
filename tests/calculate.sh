@@ -13,13 +13,13 @@ find .  -name "*\.zip" -exec unzip -q {} \; >/dev/null # unzip the results files
 # - Check md5sums for all types of files, sort
 
 echo ".txt files:"
-find . -name "*.txt" | xargs md5sum | sort
+find . -name "*.txt" | xargs md5sum | sort -V
 
 echo ".html files:"
-find . -name "*.html" | xargs md5sum | sort
+find . -name "*.html" | xargs md5sum | sort -V
 
 echo ".fo files:"
-find . -name "*.fo" | xargs md5sum | sort
+find . -name "*.fo" | xargs md5sum | sort -V 
 
 echo ".png files:"
-find . -name "*.png" | xargs md5sum | sort
+find . -name "*.png" | xargs md5sum | sort -V
