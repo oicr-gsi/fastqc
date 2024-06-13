@@ -1,6 +1,6 @@
 # fastQC
 
-Niassa-wrapped Cromwell (widdle) workflow for running FastQC tools on paired or unpaired reads.
+Cromwell (WDL) workflow for running FastQC tools on paired or unpaired reads.
 ![fastqc flowchart](docs/fastqc-wf.png)
 
 
@@ -58,12 +58,12 @@ Parameter|Value|Default|Description
 
 ### Outputs
 
-Output | Type | Description
----|---|---
-`html_report_R1`|File|HTML report for the first mate fastq file.
-`zip_bundle_R1`|File|zipped report from FastQC for the first mate reads.
-`html_report_R2`|File?|HTML report for read second mate fastq file.
-`zip_bundle_R2`|File?|zipped report from FastQC for the second mate reads.
+Output | Type | Description | Labels
+---|---|---|---
+`html_report_R1`|File|HTML report for the first mate fastq file.|vidarr_label: html_report_R1
+`zip_bundle_R1`|File|zipped report from FastQC for the first mate reads.|vidarr_label: zip_bundle_R1
+`html_report_R2`|File?|HTML report for read second mate fastq file.|vidarr_label: html_report_R2
+`zip_bundle_R2`|File?|zipped report from FastQC for the second mate reads.|vidarr_label: zip_bundle_R2
 
 
 ## Commands
