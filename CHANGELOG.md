@@ -1,3 +1,5 @@
+## 3.3.0 2024-06-13
+[GRD-797](https://jira.oicr.on.ca/browse/GRD-797) - add vidarr labels to outputs (changes to medata only)
 ## Unreleased 2021-11-10
 [GP-2876](https://jira.oicr.on.ca/browse/GP-2876) - make calculate.sh script more robust with md5sum calculation
 ## 3.2.0 2021-09-10
