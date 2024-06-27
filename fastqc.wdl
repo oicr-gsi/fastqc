@@ -38,7 +38,7 @@ parameter_meta {
 meta {
     author: "Peter Ruzanov"
     email: "peter.ruzanov@oicr.on.ca"
-    description: "Niassa-wrapped Cromwell (widdle) workflow for running FastQC tools on paired or unpaired reads.\n![fastqc flowchart](docs/fastqc-wf.png)\n"
+    description: "Cromwell (WDL) workflow for running FastQC tools on paired or unpaired reads.\n![fastqc flowchart](docs/fastqc-wf.png)\n"
     dependencies: [
       {
         name: "fastqc/0.11.9",
@@ -46,10 +46,22 @@ meta {
       }
     ]
     output_meta: {
-      html_report_R1: "HTML report for the first mate fastq file.",
-      zip_bundle_R1: "zipped report from FastQC for the first mate reads.",
-      html_report_R2: "HTML report for read second mate fastq file.",
-      zip_bundle_R2: "zipped report from FastQC for the second mate reads."
+      html_report_R1: {
+           description: "HTML report for the first mate fastq file.",
+           vidarr_label: "html_report_R1"
+      },
+      zip_bundle_R1: {
+           description: "zipped report from FastQC for the first mate reads.",
+           vidarr_label: "zip_bundle_R1"
+      },
+      html_report_R2: {
+           description: "HTML report for read second mate fastq file.",
+           vidarr_label: "html_report_R2"
+      },
+      zip_bundle_R2: {
+           description: "zipped report from FastQC for the second mate reads.",
+           vidarr_label: "zip_bundle_R2"
+      }
     }
 }
 
